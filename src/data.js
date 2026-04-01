@@ -1,12 +1,12 @@
 export const projectsData = [
   {
-    id: 'time-to-b',
-    title: { en: 'Time to B', el: 'Time to B' },
+    id: 'ampelokipi',
+    title: { en: 'Ampelokipi', el: 'Αμπελόκηποι' },
     folder: 'project-1',
     bgColor: '#eccbb7',
     textColor: '#ffffff',
-    description: { 
-      en: 'A bespoke interior redesign focusing on maximizing natural light and modern aesthetics.', 
+    description: {
+      en: 'A bespoke interior redesign focusing on maximizing natural light and modern aesthetics.',
       el: 'Ένας εξατομικευμένος σχεδιασμός εσωτερικού χώρου με έμφαση στο φυσικό φως και τη σύγχρονη αισθητική.'
     },
     images: [
@@ -16,8 +16,8 @@ export const projectsData = [
     ]
   },
   {
-    id: 'red-wall',
-    title: { en: 'Red wall', el: 'Red wall' },
+    id: 'ano-liosia',
+    title: { en: 'Ano Liosia', el: 'Άνω Λιόσια' },
     folder: 'project-2',
     bgColor: '#ffffff',
     textColor: '#eccbb7',
@@ -64,8 +64,8 @@ export const projectsData = [
     ]
   },
   {
-    id: 'leon-duplex',
-    title: { en: 'Leon Duplex', el: 'Leon Duplex' },
+    id: 'ano-toumpa',
+    title: { en: 'Ano Toumpa', el: 'Άνω Τούμπα' },
     folder: 'project-5',
     bgColor: '#eccbb7',
     textColor: '#ffffff',
