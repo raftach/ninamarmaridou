@@ -8,7 +8,7 @@ export async function renderAbout(app) {
       </div>
 
       <div style="flex: 1; min-width: 300px;" class="about-image-container">
-         <img src="/Home/industrial.jpg" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);" alt="About Nina" class="about-hero-img" />
+         <img src="${import.meta.env.BASE_URL}Home/industrial.jpg" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);" alt="About Nina" class="about-hero-img" />
       </div>
 
     </div>

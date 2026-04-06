@@ -2,10 +2,10 @@ import { getLanguage } from '../i18n.js';
 
 export async function renderServices(app) {
   const images = [
-    encodeURI('/services/services-coffee-table.jpg'),
-    encodeURI('/services/services-mediterranean-villa-interior-and-exterior-design.jpg'),
-    encodeURI('/services/services-modern-house-with-garden-swimming-pool-and-wooden.jpg'),
-    encodeURI('/services/services-modern-outdoor-living-space-with-white-furniture.jpg')
+    encodeURI(`${import.meta.env.BASE_URL}services/services-coffee-table.jpg`),
+    encodeURI(`${import.meta.env.BASE_URL}services/services-mediterranean-villa-interior-and-exterior-design.jpg`),
+    encodeURI(`${import.meta.env.BASE_URL}services/services-modern-house-with-garden-swimming-pool-and-wooden.jpg`),
+    encodeURI(`${import.meta.env.BASE_URL}services/services-modern-outdoor-living-space-with-white-furniture.jpg`)
   ];
 
   let galleryHTML = images.map(img => `
