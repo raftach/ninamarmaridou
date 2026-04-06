@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./index-qbgos3_V.js";async function r(r,i){let a=e.find(e=>e.id===i);if(!a){r.innerHTML=`<h1 style="text-align:center; padding-top: 100px;">Project not found</h1>`;return}let o=t(),s=a.title[o]||a.title.en,c=a.images.map(e=>`
+import{n as e,r as t,t as n}from"./index-CMoR4G47.js";async function r(r,i){let a=e.find(e=>e.id===i);if(!a){r.innerHTML=`<h1 style="text-align:center; padding-top: 100px;">Project not found</h1>`;return}let o=t(),s=a.title[o]||a.title.en,c=a.images.map(e=>`
     <div class="project-detail-image" style="margin-bottom: 2rem;">
       <img src="${e}" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" alt="${s} view" loading="lazy" />
     </div>
