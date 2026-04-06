@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 let scrollTriggers = [];
 
 export async function renderHome(app) {
-  scrollTriggers.forEach(st => st.kill());
+  ScrollTrigger.getAll().forEach(st => st.kill());
   scrollTriggers = [];
 
   const lang = getLanguage();
@@ -40,6 +40,7 @@ export async function renderHome(app) {
       <section class="hero-section" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 10; background: var(--bg-color);">
         <h1 class="page-title hero-title" style="margin-top: 0; font-size: 5vw;" data-i18n="home_hero_title">Crafting Spaces. Shaping Experiences.</h1>
         <p class="subtitle hero-subtitle" style="font-size: 1.5vw; color: rgba(255,255,255,0.7);" data-i18n="home_hero_subtitle">Interior Design & Architecture by Nina Marmaridou.</p>
+        <p class="motto hero-motto" style="font-size: 1.2vw; margin-top: 1rem; font-style: italic; color: var(--accent-color);" data-i18n="home_motto">“Designing the next chapter of your life”</p>
         <div class="scroll-indicator" style="margin-top: 3rem; opacity: 0.5;">
            <span style="display:block; margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Scroll to Explore</span>
            <div class="line" style="width: 1px; height: 50px; background: #fff; margin: 0 auto;"></div>
@@ -51,6 +52,22 @@ export async function renderHome(app) {
          <div class="story-wrapper" style="width: ${projectsData.length * 100}vw;">
             ${projectsHTML}
          </div>
+      </section>
+
+      <!-- Partners Section -->
+      <section class="partners-section">
+        <h2 class="partners-title" data-i18n="partners_title">Partners</h2>
+        <div class="marquee-container">
+          <div class="marquee-content">
+            <img src="/partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" />
+            <img src="/partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" />
+            <img src="/partners/florentino.svg" alt="Florentino Logo" class="partner-logo" />
+            <!-- Duplicate for infinite scroll -->
+            <img src="/partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" />
+            <img src="/partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" />
+            <img src="/partners/florentino.svg" alt="Florentino Logo" class="partner-logo" />
+          </div>
+        </div>
       </section>
 
     </div>
@@ -107,13 +124,13 @@ function initGSAP() {
     const photos = document.querySelectorAll(`#project-${idx} .photo`);
     photos.forEach((photo, pIdx) => {
       if (pIdx === 0) {
-        tl.set(photo, { yPercent: 0, opacity: 1 });
+        tl.set(photo, { yPercent: 0, autoAlpha: 1 });
       } else {
         tl.fromTo(photo, 
-          { yPercent: 100, opacity: 0, scale: 1.1 }, 
-          { yPercent: 0, opacity: 1, scale: 1, ease: "power2.out" }
+          { yPercent: 100, autoAlpha: 0, scale: 1.1 }, 
+          { yPercent: 0, autoAlpha: 1, scale: 1, ease: "power2.out" }
         );
-        tl.to(photos[pIdx - 1], { opacity: 0, scale: 0.9, ease: "power2.in" }, "<");
+        tl.to(photos[pIdx - 1], { autoAlpha: 0, scale: 0.9, ease: "power2.in" }, "<");
       }
     });
 

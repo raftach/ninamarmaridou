@@ -1,82 +1,178 @@
 export const projectsData = [
   {
-    id: 'ampelokipi',
-    title: { en: 'Ampelokipi', el: 'Αμπελόκηποι' },
-    folder: 'project-1',
-    bgColor: '#eccbb7',
-    textColor: '#ffffff',
-    description: {
-      en: 'A bespoke interior redesign focusing on maximizing natural light and modern aesthetics.',
-      el: 'Ένας εξατομικευμένος σχεδιασμός εσωτερικού χώρου με έμφαση στο φυσικό φως και τη σύγχρονη αισθητική.'
-    },
-    images: [
-      new URL('./assets/project-1/αμεπλ (1).png', import.meta.url).href,
-      new URL('./assets/project-1/αμεπλ (2).png', import.meta.url).href,
-      new URL('./assets/project-1/αμεπλ (3).png', import.meta.url).href
-    ]
-  },
-  {
-    id: 'ano-liosia',
-    title: { en: 'Ano Liosia', el: 'Άνω Λιόσια' },
-    folder: 'project-2',
+    id: 'kifisia',
+    title: { en: 'Kifisia', el: 'Κηφισιά' },
+    folder: 'kifisia',
     bgColor: '#ffffff',
     textColor: '#eccbb7',
     description: {
-      en: 'Striking contrasts and bold choices define this residential project.',
-      el: 'Έντονες αντιθέσεις και τολμηρές επιλογές καθορίζουν αυτό το οικιστικό έργο.'
+      en: 'An exclusive residential project in Kifisia. We integrated premium natural oak materials with bespoke minimalist lighting fixtures to create an airy, sophisticated environment, fulfilling the client’s desire for modern elegance.',
+      el: 'Ένα αποκλειστικό οικιστικό έργο στην Κηφισιά. Ενσωματώσαμε υλικά από φυσικό δρυ με μινιμαλιστικά φωτιστικά κατά παραγγελία για να δημιουργήσουμε ένα αέρινο, εκλεπτυσμένο περιβάλλον, εκπληρώνοντας την επιθυμία του πελάτη για μοντέρνα κομψότητα.'
     },
     images: [
-      new URL('./assets/project-2/ano liosia (1).png', import.meta.url).href,
-      new URL('./assets/project-2/ano liosia (2).png', import.meta.url).href,
-      new URL('./assets/project-2/ano liosia (3).png', import.meta.url).href
+      '/projects/kifisia/kifisia1.jpg',
+      '/projects/kifisia/kifisia10.png',
+      '/projects/kifisia/kifisia11.jpg',
+      '/projects/kifisia/kifisia12.png',
+      '/projects/kifisia/kifisia13.jpg',
+      '/projects/kifisia/kifisia14.png',
+      '/projects/kifisia/kifisia15.jpg',
+      '/projects/kifisia/kifisia16.png',
+      '/projects/kifisia/kifisia17.jpg',
+      '/projects/kifisia/kifisia18.png',
+      '/projects/kifisia/kifisia19.jpg',
+      '/projects/kifisia/kifisia2.png',
+      '/projects/kifisia/kifisia20.png',
+      '/projects/kifisia/kifisia21.jpg',
+      '/projects/kifisia/kifisia22.png',
+      '/projects/kifisia/kifisia23.jpg',
+      '/projects/kifisia/kifisia3.jpg',
+      '/projects/kifisia/kifisia4.png',
+      '/projects/kifisia/kifisia5.jpg',
+      '/projects/kifisia/kifisia6.png',
+      '/projects/kifisia/kifisia7.jpg',
+      '/projects/kifisia/kifisia8.png',
+      '/projects/kifisia/kifisia9.jpg'
     ]
   },
   {
-    id: 'mf-residence',
-    title: { en: 'MF Residence', el: 'MF Residence' },
-    folder: 'project-3',
+    id: 'thessaloniki-city-center',
+    title: { en: 'Thessaloniki City Center', el: 'Κέντρο Θεσσαλονίκης' },
+    folder: 'skgcenter',
     bgColor: '#eccbb7',
     textColor: '#ffffff',
     description: {
-      en: 'A luxurious and expansive residence set in a tranquil environment.',
-      el: 'Μια πολυτελής και ευρύχωρη κατοικία σε ένα ήρεμο περιβάλλον.'
+      en: 'A dynamic transformation of a historical apartment in Thessaloniki City Center. By knocking down unnecessary partitions and introducing industrial steel accents against exposed brick, we revitalized the urban layout for a young professional.',
+      el: 'Μια δυναμική μεταμόρφωση ενός ιστορικού διαμερίσματος στο Κέντρο της Θεσσαλονίκης. Καταρρίπτοντας περιττά χωρίσματα και εισάγοντας βιομηχανικές ατσάλινες λεπτομέρειες σε συνδυασμό με εμφανές τούβλο, αναζωογονήσαμε την αστική διαρρύθμιση για έναν νέο επαγγελματία.'
     },
     images: [
-      new URL('./assets/project-3/τελικο1.png', import.meta.url).href,
-      new URL('./assets/project-3/τελικο2.png', import.meta.url).href,
-      new URL('./assets/project-3/τελικο3.png', import.meta.url).href
+      '/projects/skgcenter/skgcenter1.png',
+      '/projects/skgcenter/skgcenter10.png',
+      '/projects/skgcenter/skgcenter11.png',
+      '/projects/skgcenter/skgcenter12.png',
+      '/projects/skgcenter/skgcenter13.png',
+      '/projects/skgcenter/skgcenter14.png',
+      '/projects/skgcenter/skgcenter15.png',
+      '/projects/skgcenter/skgcenter16.png',
+      '/projects/skgcenter/skgcenter17.png',
+      '/projects/skgcenter/skgcenter18.png',
+      '/projects/skgcenter/skgcenter19.png',
+      '/projects/skgcenter/skgcenter2.png',
+      '/projects/skgcenter/skgcenter20.png',
+      '/projects/skgcenter/skgcenter21.png',
+      '/projects/skgcenter/skgcenter22.png',
+      '/projects/skgcenter/skgcenter3.png',
+      '/projects/skgcenter/skgcenter4.png',
+      '/projects/skgcenter/skgcenter5.png',
+      '/projects/skgcenter/skgcenter6.png',
+      '/projects/skgcenter/skgcenter7.png',
+      '/projects/skgcenter/skgcenter8.png',
+      '/projects/skgcenter/skgcenter9.png'
     ]
   },
   {
-    id: 'modern-house',
-    title: { en: 'Modern House', el: 'Modern House' },
-    folder: 'project-4',
+    id: 'tsimiski-street',
+    title: { en: 'Tsimiski Street', el: 'Οδός Τσιμισκή' },
+    folder: 'tsimiski',
     bgColor: '#ffffff',
     textColor: '#eccbb7',
     description: {
-      en: 'Seamless integration of wood and stone for a modern aesthetic.',
-      el: 'Απρόσκοπτη ενσωμάτωση ξύλου και πέτρας για μια σύγχρονη αισθητική.'
+      en: 'A high-end retail and showroom space on Tsimiski Street. Our approach utilized seamless acoustic panels, hidden LED strip lighting, and monolithic marble counters to emphasize the brand’s minimalist ethos and premium product line.',
+      el: 'Ένας υψηλής αισθητικής εμπορικός και εκθεσιακός χώρος στην Οδό Τσιμισκή. Η προσέγγισή μας χρησιμοποίησε ακουστικά πάνελ χωρίς ραφές, κρυφό φωτισμό LED και μονολιθικούς πάγκους από μάρμαρο για να τονίσει τη μινιμαλιστική φιλοσοφία και την premium σειρά προϊόντων του brand.'
     },
     images: [
-      new URL('./assets/project-4/deeef (1).png', import.meta.url).href,
-      new URL('./assets/project-4/deeef (2).png', import.meta.url).href,
-      new URL('./assets/project-4/deeef (3).png', import.meta.url).href
+      '/projects/tsimiski/tsimiski1.jpg',
+      '/projects/tsimiski/tsimiski10.png',
+      '/projects/tsimiski/tsimiski11.jpeg',
+      '/projects/tsimiski/tsimiski12.jpeg',
+      '/projects/tsimiski/tsimiski2.png',
+      '/projects/tsimiski/tsimiski3.jpg',
+      '/projects/tsimiski/tsimiski4.png',
+      '/projects/tsimiski/tsimiski5.jpg',
+      '/projects/tsimiski/tsimiski6.jpg',
+      '/projects/tsimiski/tsimiski7.jpg',
+      '/projects/tsimiski/tsimiski8.jpg',
+      '/projects/tsimiski/tsimiski9.png'
     ]
   },
   {
-    id: 'ano-toumpa',
-    title: { en: 'Ano Toumpa', el: 'Άνω Τούμπα' },
-    folder: 'project-5',
+    id: 'ekali',
+    title: { en: 'Ekali', el: 'Εκάλη' },
+    folder: 'ekali',
     bgColor: '#eccbb7',
     textColor: '#ffffff',
     description: {
-      en: 'A contemporary duplex focusing on vertical living dynamics.',
-      el: 'Ένα σύγχρονο duplex με έμφαση στη δυναμική της κάθετης διαβίωσης.'
+      en: 'A luxurious villa retreat in Ekali. The design seamlessly connects indoor and outdoor living spaces through expansive glass facades. We recommended earthy travertine floors and warm walnut cabinetry to ground the vast, open volumes.',
+      el: 'Ένα πολυτελές καταφύγιο (βίλα) στην Εκάλη. Ο σχεδιασμός συνδέει αρμονικά τους εσωτερικούς και εξωτερικούς χώρους διαβίωσης μέσα από μεγάλες γυάλινες όψεις. Προτείναμε γήινα δάπεδα από τραβερτίνη και ζεστά ντουλάπια από καρυδιά για να ισορροπήσουμε τους τεράστιους, ανοιχτούς όγκους.'
     },
     images: [
-      new URL('./assets/project-5/ανω τουμπα (1).png', import.meta.url).href,
-      new URL('./assets/project-5/ανω τουμπα (2).png', import.meta.url).href,
-      new URL('./assets/project-5/3.png', import.meta.url).href
+      '/projects/ekali/ekali1.png',
+      '/projects/ekali/ekali10.png',
+      '/projects/ekali/ekali11.png',
+      '/projects/ekali/ekali12.png',
+      '/projects/ekali/ekali13.png',
+      '/projects/ekali/ekali14.png',
+      '/projects/ekali/ekali15.png',
+      '/projects/ekali/ekali16.png',
+      '/projects/ekali/ekali2.png',
+      '/projects/ekali/ekali3.png',
+      '/projects/ekali/ekali4.png',
+      '/projects/ekali/ekali5.png',
+      '/projects/ekali/ekali6.png',
+      '/projects/ekali/ekali7.png',
+      '/projects/ekali/ekali8.png',
+      '/projects/ekali/ekali9.png'
+    ]
+  },
+  {
+    id: 'karpenisi',
+    title: { en: 'Karpenisi', el: 'Καρπενήσι' },
+    folder: 'karpenisi',
+    bgColor: '#ffffff',
+    textColor: '#eccbb7',
+    description: {
+      en: 'A cozy winter chalet nestled in Karpenisi. We focused on thermal comfort and rustic warmth by proposing heavy timber beams, locally sourced stone cladding, and plush textiles, creating an inviting sanctuary amidst the snowy landscape.',
+      el: 'Ένα ζεστό χειμερινό σαλέ φωλιασμένο στο Καρπενήσι. Επικεντρωθήκαμε στη θερμική άνεση και τη ρουστίκ ζεστασιά προτείνοντας βαριά ξύλινα δοκάρια, επενδύσεις από τοπική πέτρα και πλούσια υφάσματα, δημιουργώντας ένα φιλόξενο καταφύγιο μέσα στο χιονισμένο τοπίο.'
+    },
+    images: [
+      '/projects/karpenisi/karpenisi1.jpg',
+      '/projects/karpenisi/karpenisi10.png',
+      '/projects/karpenisi/karpenisi11.jpg',
+      '/projects/karpenisi/karpenisi12.png',
+      '/projects/karpenisi/karpenisi13.jpg',
+      '/projects/karpenisi/karpenisi14.png',
+      '/projects/karpenisi/karpenisi15.jpg',
+      '/projects/karpenisi/karpenisi16.png',
+      '/projects/karpenisi/karpenisi17.jpg',
+      '/projects/karpenisi/karpenisi18.png',
+      '/projects/karpenisi/karpenisi19.jpg',
+      '/projects/karpenisi/karpenisi2.jpg',
+      '/projects/karpenisi/karpenisi20.png',
+      '/projects/karpenisi/karpenisi21.jpg',
+      '/projects/karpenisi/karpenisi22.jpg',
+      '/projects/karpenisi/karpenisi23.jpg',
+      '/projects/karpenisi/karpenisi24.jpg',
+      '/projects/karpenisi/karpenisi25.jpg',
+      '/projects/karpenisi/karpenisi26.jpg',
+      '/projects/karpenisi/karpenisi27.jpg',
+      '/projects/karpenisi/karpenisi28.jpg',
+      '/projects/karpenisi/karpenisi29.jpg',
+      '/projects/karpenisi/karpenisi3.jpg',
+      '/projects/karpenisi/karpenisi30.jpg',
+      '/projects/karpenisi/karpenisi31.jpg',
+      '/projects/karpenisi/karpenisi32.jpg',
+      '/projects/karpenisi/karpenisi33.jpg',
+      '/projects/karpenisi/karpenisi34.jpg',
+      '/projects/karpenisi/karpenisi35.jpg',
+      '/projects/karpenisi/karpenisi36.jpg',
+      '/projects/karpenisi/karpenisi37.jpg',
+      '/projects/karpenisi/karpenisi38.jpg',
+      '/projects/karpenisi/karpenisi4.jpg',
+      '/projects/karpenisi/karpenisi5.jpg',
+      '/projects/karpenisi/karpenisi6.jpg',
+      '/projects/karpenisi/karpenisi7.png',
+      '/projects/karpenisi/karpenisi8.png',
+      '/projects/karpenisi/karpenisi9.jpg'
     ]
   }
 ];

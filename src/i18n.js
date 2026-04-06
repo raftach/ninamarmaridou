@@ -8,8 +8,10 @@ export const dict = {
   // Home
   home_hero_title: { en: "Crafting Spaces. Shaping Experiences.", el: "Δημιουργούμε Χώρους. Πλάθουμε Εμπειρίες." },
   home_hero_subtitle: { en: "Interior Design & Architecture by Nina Marmaridou.", el: "Εσωτερική Διακόσμηση & Αρχιτεκτονική από την Νίνα Μαρμαρίδου." },
+  home_motto: { en: "“Designing the next chapter of your life”", el: "“Σχεδιάζουμε το επόμενο κεφάλαιο της ζωής σας”" },
   explore_projects: { en: "Explore Projects", el: "Εξερευνήστε τα Έργα" },
   projects_title: { en: "Featured Works", el: "Επιλεγμένα Έργα" },
+  partners_title: { en: "Partners", el: "Συνεργάτες" },
 
   // Services
   services_title: { en: "Our Services", el: "Οι Υπηρεσίες μας" },
