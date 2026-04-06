@@ -55,18 +55,12 @@ export async function renderHome(app) {
       </section>
 
       <!-- Partners Section -->
-      <section class="partners-section">
-        <h2 class="partners-title" data-i18n="partners_title">Partners</h2>
-        <div class="marquee-container">
-          <div class="marquee-content">
-            <img src="/partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" />
-            <img src="/partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" />
-            <img src="/partners/florentino.svg" alt="Florentino Logo" class="partner-logo" />
-            <!-- Duplicate for infinite scroll -->
-            <img src="/partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" />
-            <img src="/partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" />
-            <img src="/partners/florentino.svg" alt="Florentino Logo" class="partner-logo" />
-          </div>
+      <section class="partners-section" style="padding: 5rem 0; text-align: center;">
+        <h2 class="partners-title" data-i18n="partners_title" style="margin-bottom: 2rem;">Partners</h2>
+        <div class="partners-grid" style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+          <img src="${import.meta.env.BASE_URL}partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" style="height: 50px;" />
+          <img src="${import.meta.env.BASE_URL}partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" style="height: 50px;" />
+          <img src="${import.meta.env.BASE_URL}partners/florentino.svg" alt="Florentino Logo" class="partner-logo" style="height: 50px;" />
         </div>
       </section>
 
@@ -86,13 +80,15 @@ function initGSAP() {
   const wrapper = document.querySelector('.story-wrapper');
   if (!wrapper) return;
 
+  const totalImages = projectsData.reduce((acc, p) => acc + p.images.length, 0);
+  const scrollDistance = window.innerHeight * totalImages * 0.3; // Much slower scroll
+
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".story-container",
       pin: true,
-      scrub: 1,
-      // end length dynamically based on projects + photos
-      end: () => "+=" + (window.innerWidth * projectsData.length * 1.5) 
+      scrub: 2, // Smooth catch-up
+      end: () => "+=" + scrollDistance 
     }
   });
 

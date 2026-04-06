@@ -40,12 +40,15 @@ const colors = [
 ];
 
 const dirs = ['kifisia', 'skgcenter', 'tsimiski', 'ekali', 'karpenisi'];
-let dataJs = "export const projectsData = [\n";
+let dataJs = `const BASE = import.meta.env.BASE_URL;
+
+export const projectsData = [
+`;
 
 dirs.forEach((d, i) => {
   const images = fs.readdirSync('public/projects/' + d)
     .filter(f => !f.startsWith('.') && f.match(/\.(png|jpe?g|svg)$/i))
-    .map(f => "'" + "/projects/" + d + "/" + f + "'");
+    .map(f => "BASE + '" + "projects/" + d + "/" + f + "'");
 
   dataJs += `  {
     id: '${d === 'skgcenter' ? 'thessaloniki-city-center' : d === 'tsimiski' ? 'tsimiski-street' : d}',
