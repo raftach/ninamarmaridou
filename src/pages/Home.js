@@ -87,7 +87,7 @@ function initGSAP() {
     scrollTrigger: {
       trigger: ".story-container",
       pin: true,
-      scrub: 2, // Smooth catch-up
+      scrub: true, // Lock exact to Lenis scroll without additional delay
       end: () => "+=" + scrollDistance 
     }
   });
