@@ -14,10 +14,4 @@ export async function renderAbout(app) {
     </div>
   `;
 
-  setTimeout(() => {
-    import('gsap').then(({ gsap }) => {
-      gsap.fromTo(".about-text-container", { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power2.out" });
-      gsap.fromTo(".about-image-container", { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 1, ease: "power2.out", delay: 0.2 });
-    });
-  }, 100);
 }
