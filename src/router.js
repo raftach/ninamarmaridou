@@ -3,12 +3,14 @@ import { renderHome } from './pages/Home.js';
 import { renderServices } from './pages/Services.js';
 import { renderAbout } from './pages/About.js';
 import { renderContact } from './pages/Contact.js';
+import { renderArticles } from './pages/Articles.js';
 
 const routes = {
   '/': renderHome,
   '/services': renderServices,
   '/about': renderAbout,
   '/contact': renderContact,
+  '/articles': renderArticles,
 };
 
 export function navigateTo(url) {
@@ -36,6 +38,9 @@ export async function router() {
     const projectId = path.split('/')[2];
     const { renderProject } = await import('./pages/Project.js');
     await renderProject(app, decodeURIComponent(projectId));
+  } else if (path.startsWith('/article/')) {
+    const articleId = path.split('/')[2];
+    await renderArticles(app, decodeURIComponent(articleId));
   } else {
     const renderFn = routes[path] || renderHome;
     await renderFn(app);

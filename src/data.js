@@ -5,6 +5,7 @@ export const projectsData = [
     id: 'kifisia',
     title: { en: 'Kifisia', el: 'Κηφισιά' },
     folder: 'kifisia',
+    category: 'interior',
     bgColor: '#ffffff',
     textColor: '#eccbb7',
     description: {
@@ -41,6 +42,7 @@ export const projectsData = [
     id: 'thessaloniki-city-center',
     title: { en: 'Thessaloniki City Center', el: 'Κέντρο Θεσσαλονίκης' },
     folder: 'skgcenter',
+    category: 'interior',
     bgColor: '#eccbb7',
     textColor: '#ffffff',
     description: {
@@ -76,6 +78,7 @@ export const projectsData = [
     id: 'tsimiski-street',
     title: { en: 'Tsimiski Street', el: 'Οδός Τσιμισκή' },
     folder: 'tsimiski',
+    category: 'interior',
     bgColor: '#ffffff',
     textColor: '#eccbb7',
     description: {
@@ -101,6 +104,7 @@ export const projectsData = [
     id: 'ekali',
     title: { en: 'Ekali', el: 'Εκάλη' },
     folder: 'ekali',
+    category: 'exterior',
     bgColor: '#eccbb7',
     textColor: '#ffffff',
     description: {
@@ -130,6 +134,7 @@ export const projectsData = [
     id: 'karpenisi',
     title: { en: 'Karpenisi', el: 'Καρπενήσι' },
     folder: 'karpenisi',
+    category: 'exterior',
     bgColor: '#ffffff',
     textColor: '#eccbb7',
     description: {
@@ -176,5 +181,40 @@ export const projectsData = [
       BASE + 'projects/karpenisi/karpenisi8.png',
       BASE + 'projects/karpenisi/karpenisi9.jpg'
     ]
+  }
+];
+
+export const articlesData = [
+  {
+    id: 'minimalism-redefined',
+    title: { en: 'Minimalism Redefined', el: 'Ο Μινιμαλισμός Αλλιώς' },
+    date: '2026-04-15',
+    videoUrl: 'https://www.instagram.com/p/mockvideo1/',
+    content: {
+      en: [
+        { type: 'text-img-right', text: 'Minimalism is not about having less, it is about making room for more of what matters. We explore how natural textures and lighting play a pivotal role in creating a warm minimalist space.', img: BASE + 'projects/kifisia/kifisia1.jpg' },
+        { type: 'img-left-text', text: 'Integrating acoustic panels and bespoke furniture allows the space to breathe without feeling empty. Every corner serves a purpose, maintaining a clean yet inviting aesthetic.', img: BASE + 'projects/tsimiski/tsimiski1.jpg' }
+      ],
+      el: [
+        { type: 'text-img-right', text: 'Ο μινιμαλισμός δεν σημαίνει λιγότερα πράγματα, αλλά να κάνεις χώρο για αυτά που έχουν σημασία. Εξερευνούμε πώς οι φυσικές υφές και ο φωτισμός παίζουν καθοριστικό ρόλο.', img: BASE + 'projects/kifisia/kifisia1.jpg' },
+        { type: 'img-left-text', text: 'Η ενσωμάτωση ακουστικών πάνελ και επίπλων κατά παραγγελία επιτρέπει στον χώρο να αναπνέει χωρίς να φαίνεται άδειος.', img: BASE + 'projects/tsimiski/tsimiski1.jpg' }
+      ]
+    }
+  },
+  {
+    id: 'outdoor-living',
+    title: { en: 'The Art of Outdoor Living', el: 'Η Τέχνη της Εξωτερικής Διαβίωσης' },
+    date: '2026-03-22',
+    videoUrl: 'https://www.instagram.com/p/mockvideo2/',
+    content: {
+      en: [
+        { type: 'text-img-right', text: 'Blurring the lines between interior and exterior spaces creates a seamless living experience. Using expansive glass facades allows nature to become part of the decor.', img: BASE + 'projects/ekali/ekali1.png' },
+        { type: 'img-left-text', text: 'Choosing the right materials like travertine floors ensures durability while maintaining a luxurious aesthetic.', img: BASE + 'projects/ekali/ekali2.png' }
+      ],
+      el: [
+        { type: 'text-img-right', text: 'Το να θολώνεις τα όρια μεταξύ εσωτερικού και εξωτερικού χώρου δημιουργεί μια απρόσκοπτη εμπειρία διαβίωσης.', img: BASE + 'projects/ekali/ekali1.png' },
+        { type: 'img-left-text', text: 'Η επιλογή των σωστών υλικών, όπως δάπεδα από τραβερτίνη, εξασφαλίζει αντοχή και διατηρεί μια πολυτελή αισθητική.', img: BASE + 'projects/ekali/ekali2.png' }
+      ]
+    }
   }
 ];

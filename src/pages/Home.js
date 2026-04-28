@@ -22,7 +22,10 @@ export async function renderHome(app) {
     projectsHTML += `
       <div class="project-slide" id="project-${idx}" style="background-color: ${project.bgColor}; color: ${project.textColor || 'var(--text-color)'};">
         <div class="project-content">
-           <h3 class="project-title">${project.title[lang] || project.title.en}</h3>
+           <h3 class="project-title" style="margin-bottom: 0.5rem;">${project.title[lang] || project.title.en}</h3>
+           <p class="project-category" style="font-size: 0.8vw; text-transform: uppercase; letter-spacing: 2px; border: 1px solid currentColor; padding: 0.3rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem;">
+              ${project.category === 'interior' ? (lang === 'el' ? 'Εσωτερικός Χώρος' : 'Interior Design') : (lang === 'el' ? 'Εξωτερικός Χώρος' : 'Exterior Design')}
+           </p>
            <p class="project-desc" style="color: inherit; opacity: 0.8;">${project.description[lang] || project.description.en}</p>
            <a href="/project/${project.id}" data-link class="btn-primary" style="color: inherit; border-color: inherit;" data-i18n="explore_projects">Explore Project</a>
         </div>
@@ -36,14 +39,22 @@ export async function renderHome(app) {
   app.innerHTML = `
     <div class="page-container home-page" style="padding: 0; min-height: 100vh;">
       
-      <!-- Hero -->
-      <section class="hero-section" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 10; background: var(--bg-color);">
-        <h1 class="page-title hero-title" style="margin-top: 0; font-size: 5vw;" data-i18n="home_hero_title">Crafting Spaces. Shaping Experiences.</h1>
-        <p class="subtitle hero-subtitle" style="font-size: 1.5vw; color: rgba(255,255,255,0.7);" data-i18n="home_hero_subtitle">Interior Design & Architecture by Nina Marmaridou.</p>
-        <p class="motto hero-motto" style="font-size: 1.2vw; margin-top: 1rem; font-style: italic; color: var(--accent-color);" data-i18n="home_motto">“Designing the next chapter of your life”</p>
-        <div class="scroll-indicator" style="margin-top: 3rem; opacity: 0.5;">
-           <span style="display:block; margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Scroll to Explore</span>
-           <div class="line" style="width: 1px; height: 50px; background: #fff; margin: 0 auto;"></div>
+      <section class="hero-section" style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 10; overflow: hidden;">
+        <!-- Placeholder Video Background -->
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+           <!-- Ensure the video file exists or user uploads it later -->
+           <source src="${import.meta.env.BASE_URL}hero-video.mp4" type="video/mp4" />
+        </video>
+        <!-- Dark Overlay -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: -1;"></div>
+
+        <h1 class="page-title hero-title" style="margin-top: 0; font-size: 5vw; color: #ffffff;" data-i18n="home_hero_title">Crafting Spaces. Shaping Experiences.</h1>
+        <p class="subtitle hero-subtitle" style="font-size: 1.5vw; color: rgba(255,255,255,0.8);" data-i18n="home_hero_subtitle">Interior Design & Architecture by Nina Marmaridou.</p>
+        <p class="motto hero-motto" style="font-size: 1.2vw; margin-top: 1rem; font-style: italic; color: #ffffff; opacity: 0.9;" data-i18n="home_motto">“Designing the next chapter of your life”</p>
+        <p class="elevated-badge" style="font-size: 1vw; text-transform: uppercase; letter-spacing: 3px; margin-top: 2rem; border: 1px solid rgba(255,255,255,0.5); padding: 0.5rem 1.5rem; border-radius: 30px; display: inline-block; color: #ffffff;" data-i18n="elevated_identity">Elevated Interior Design</p>
+        <div class="scroll-indicator" style="margin-top: 3rem; opacity: 0.7;">
+           <span style="display:block; margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #ffffff;">Scroll to Explore</span>
+           <div class="line" style="width: 1px; height: 50px; background: #ffffff; margin: 0 auto;"></div>
         </div>
       </section>
 

@@ -2,6 +2,7 @@ export const dict = {
   nav_home: { en: "Home", el: "Αρχική" },
   nav_services: { en: "Services", el: "Υπηρεσίες" },
   nav_about: { en: "About", el: "Προφίλ" },
+  nav_articles: { en: "Articles", el: "Άρθρα" },
   nav_contact: { en: "Contact", el: "Επικοινωνία" },
   footer_rights: { en: "All rights reserved.", el: "Με την επιφύλαξη παντός δικαιώματος." },
   
@@ -12,10 +13,13 @@ export const dict = {
   explore_projects: { en: "Explore Projects", el: "Εξερευνήστε τα Έργα" },
   projects_title: { en: "Featured Works", el: "Επιλεγμένα Έργα" },
   partners_title: { en: "Partners", el: "Συνεργάτες" },
+  elevated_identity: { en: "Elevated Interior Design", el: "Υψηλή Εσωτερική Διακόσμηση" },
 
   // Services
   services_title: { en: "Our Services", el: "Οι Υπηρεσίες μας" },
   services_desc: { en: "We offer full-cycle interior design and architectural services tailored to your needs.", el: "Προσφέρουμε ολοκληρωμένες υπηρεσίες εσωτερικής διακόσμησης και αρχιτεκτονικής, προσαρμοσμένες στις ανάγκες σας." },
+  interior_design: { en: "Interior Design", el: "Εσωτερική Διακόσμηση" },
+  exterior_design: { en: "Exterior Design", el: "Εξωτερική Διακόσμηση" },
 
   // About
   about_title: { en: "About Nina", el: "Σχετικά με τη Νίνα" },
@@ -28,8 +32,12 @@ export const dict = {
   contact_social: { en: "Follow Us", el: "Ακολουθήστε μας" },
   contact_form_name: { en: "Your Name", el: "Το Όνομά σας" },
   contact_form_email: { en: "Your Email", el: "Το Email σας" },
+  contact_form_services: { en: "Services of Interest", el: "Υπηρεσίες Ενδιαφέροντος" },
   contact_form_message: { en: "Message", el: "Μήνυμα" },
   contact_form_submit: { en: "Send Message", el: "Αποστολή" },
+  construction_service: { en: "Construction & Overview", el: "Κατασκευή και Επίβλεψη" },
+  other_service: { en: "Other", el: "Άλλο" },
+  other_service_placeholder: { en: "Please specify...", el: "Παρακαλώ διευκρινίστε..." },
   
   // Project Info placeholders (for the generic project text)
   project_desc_fallback: { 
