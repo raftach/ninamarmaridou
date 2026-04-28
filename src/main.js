@@ -37,6 +37,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Cookie Consent Logic
+  if (!localStorage.getItem('cookiesAccepted')) {
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.innerHTML = `
+      <div class="cookie-banner-content">
+         <span data-i18n="cookies_text">We use cookies to improve your experience. By continuing to visit this site you agree to our use of cookies.</span>
+      </div>
+      <button class="cookie-btn" data-i18n="cookies_accept">Accept</button>
+    `;
+    document.body.appendChild(banner);
+    
+    // Slight delay to allow CSS transition
+    setTimeout(() => {
+       banner.classList.add('show');
+    }, 100);
+
+    banner.querySelector('.cookie-btn').addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      banner.classList.remove('show');
+      setTimeout(() => banner.remove(), 500);
+    });
+  }
+
   setLanguage('en');
   initRouter();
 });

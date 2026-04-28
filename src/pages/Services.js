@@ -34,8 +34,18 @@ export async function renderServices(app) {
 
   app.innerHTML = `
     <div class="page-container services-page" style="padding-top: 120px; max-width: 1200px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
-      <h1 class="page-title" data-i18n="services_title" style="margin-top: 0;">Our Services</h1>
-      <p style="text-align:center; max-width: 800px; margin: 0 auto; padding-bottom: 4rem; color: var(--text-color); opacity: 0.7; font-size: 1.2rem;" data-i18n="services_desc">We offer full-cycle interior design...</p>
+      <div class="glass-panel" style="margin-bottom: 4rem; text-align: center;">
+         <h1 class="page-title" data-i18n="services_title" style="margin-top: 0;">Our Services</h1>
+         <p class="subtitle" data-i18n="services_intro" style="font-size: 1.2rem; opacity: 0.8; max-width: 800px; margin: 0 auto; margin-bottom: 2rem;">We offer comprehensive interior design solutions...</p>
+         
+         <div style="text-align: left; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; opacity: 0.9;">
+            <p data-i18n="services_study"><strong>Space Study:</strong> Creating tailored solutions that respond to your needs and personality.</p>
+            <p data-i18n="services_residential"><strong>Residential & Commercial Formatting:</strong> Transforming spaces into modern, functional, and aesthetically complete environments.</p>
+            <p data-i18n="services_consulting"><strong>Decor Consulting:</strong> Selecting materials, color palettes, and textures that define the space's atmosphere.</p>
+            <p data-i18n="services_custom"><strong>Furniture & Custom Design:</strong> Designing furniture and custom constructs that offer solutions even in the most unique spaces.</p>
+            <p data-i18n="services_construction_text"><strong>Construction & Overview:</strong> Complete project management from initiation to final delivery.</p>
+         </div>
+      </div>
       
       <div class="services-sections">
         <div class="service-section" style="margin-bottom: 5rem;">
@@ -57,6 +67,12 @@ export async function renderServices(app) {
            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
              ${constructionHTML}
            </div>
+        </div>
+
+        <!-- Vision Section -->
+        <div class="glass-panel" style="margin-bottom: 5rem; text-align: center; padding: 4rem;">
+           <h2 data-i18n="services_vision_title" style="font-size: 2.5rem; font-weight: 300; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem;">Vision</h2>
+           <p data-i18n="services_vision_text" style="font-size: 1.2rem; line-height: 1.8; opacity: 0.9;">Reflecting your personal style through design solutions that make your space perfect for your everyday life.</p>
         </div>
       </div>
     </div>

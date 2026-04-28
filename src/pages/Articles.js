@@ -29,7 +29,7 @@ export async function renderArticles(app, articleId = null) {
       
       html += `
         <div class="article-block" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; flex-direction: ${isImgRight ? 'row' : 'row-reverse'};">
-           <div class="article-text" style="flex: 1; min-width: 300px;">
+           <div class="article-text glass-panel" style="flex: 1; min-width: 300px; padding: 2.5rem;">
               <p style="font-size: 1.2rem; line-height: 1.8; opacity: 0.9;">${block.text}</p>
            </div>
            <div class="article-img" style="flex: 1; min-width: 300px;">

@@ -4,6 +4,7 @@ import { renderServices } from './pages/Services.js';
 import { renderAbout } from './pages/About.js';
 import { renderContact } from './pages/Contact.js';
 import { renderArticles } from './pages/Articles.js';
+import { renderPrivacy } from './pages/Privacy.js';
 
 const routes = {
   '/': renderHome,
@@ -11,6 +12,7 @@ const routes = {
   '/about': renderAbout,
   '/contact': renderContact,
   '/articles': renderArticles,
+  '/privacy': renderPrivacy,
 };
 
 export function navigateTo(url) {

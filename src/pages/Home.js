@@ -15,13 +15,13 @@ export async function renderHome(app) {
 
   let projectsHTML = ``;
   projectsData.forEach((project, idx) => {
-    let imagesHTML = project.images.map((img, i) => `
+    let imagesHTML = project.images.slice(0, 3).map((img, i) => `
       <img class="photo photo-${i}" src="${img}" alt="${project.title.en} view ${i}" loading="lazy" />
     `).join('');
 
     projectsHTML += `
       <div class="project-slide" id="project-${idx}" style="background-color: ${project.bgColor}; color: ${project.textColor || 'var(--text-color)'};">
-        <div class="project-content">
+        <div class="project-content glass-panel" style="backdrop-filter: blur(20px); border-radius: 20px;">
            <h3 class="project-title" style="margin-bottom: 0.5rem;">${project.title[lang] || project.title.en}</h3>
            <p class="project-category" style="font-size: 0.8vw; text-transform: uppercase; letter-spacing: 2px; border: 1px solid currentColor; padding: 0.3rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem;">
               ${project.category === 'interior' ? (lang === 'el' ? 'Εσωτερικός Χώρος' : 'Interior Design') : (lang === 'el' ? 'Εξωτερικός Χώρος' : 'Exterior Design')}
@@ -58,6 +58,14 @@ export async function renderHome(app) {
         </div>
       </section>
 
+      <!-- Design Philosophy -->
+      <section class="philosophy-section" style="padding: 6rem 2rem; text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 20;">
+        <div class="glass-panel" style="padding: 4rem;">
+           <h2 class="section-title" data-i18n="home_philosophy_title" style="font-size: 2.5rem; font-weight: 300; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem;">Design Philosophy</h2>
+           <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;" data-i18n="home_philosophy_text">Nina Marmaridou's philosophy is based on the harmonious coexistence of function and aesthetics. Every project starts with an in-depth analysis of the client's needs, existing structures, and environment. The goal is to create timeless spaces, where functionality meets aesthetics through carefully selected materials.</p>
+        </div>
+      </section>
+
       <!-- Horizontal scrolling container -->
       <section class="story-container">
          <div class="story-wrapper" style="width: ${projectsData.length * 100}vw;">
@@ -66,12 +74,15 @@ export async function renderHome(app) {
       </section>
 
       <!-- Partners Section -->
-      <section class="partners-section" style="padding: 5rem 0; text-align: center;">
-        <h2 class="partners-title" data-i18n="partners_title" style="margin-bottom: 2rem;">Partners</h2>
-        <div class="partners-grid" style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
-          <img src="${import.meta.env.BASE_URL}partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" style="height: 50px;" />
-          <img src="${import.meta.env.BASE_URL}partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" style="height: 50px;" />
-          <img src="${import.meta.env.BASE_URL}partners/florentino.svg" alt="Florentino Logo" class="partner-logo" style="height: 50px;" />
+      <section class="partners-section" style="padding: 5rem 2rem; text-align: center; max-width: 1000px; margin: 0 auto;">
+        <div class="glass-panel" style="padding: 4rem;">
+          <h2 class="partners-title" data-i18n="partners_title" style="margin-bottom: 1.5rem;">Partners</h2>
+          <p data-i18n="partners_text" style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 3rem;">Every project is a unique design story, see how we transformed spaces with style, functionality, and aesthetic balance.</p>
+          <div class="partners-grid" style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+            <img src="${import.meta.env.BASE_URL}partners/cma-logo.svg" alt="CMA Logo" class="partner-logo" style="height: 50px;" />
+            <img src="${import.meta.env.BASE_URL}partners/epsilon.svg" alt="Epsilon Logo" class="partner-logo" style="height: 50px;" />
+            <img src="${import.meta.env.BASE_URL}partners/florentino.svg" alt="Florentino Logo" class="partner-logo" style="height: 50px;" />
+          </div>
         </div>
       </section>
 
@@ -91,7 +102,7 @@ function initGSAP() {
   const wrapper = document.querySelector('.story-wrapper');
   if (!wrapper) return;
 
-  const totalImages = projectsData.reduce((acc, p) => acc + p.images.length, 0);
+  const totalImages = projectsData.reduce((acc, p) => acc + Math.min(3, p.images.length), 0);
   const scrollDistance = window.innerHeight * totalImages * 0.3; // Much slower scroll
 
   const tl = gsap.timeline({
