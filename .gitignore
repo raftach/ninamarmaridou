@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Large development asset folder (not served by the site)
+src/assets/
+
+# Environment files (contain secrets/config)
+.env
+.env.local
+.env.production
+.env.*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

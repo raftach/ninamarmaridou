@@ -1,0 +1,21 @@
+# SPA routing for ninamarmaridou.com — all unknown paths serve index.html
+# Required when deploying to Apache hosting (most Greek hosting providers)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Cache static assets aggressively
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg  "access plus 1 year"
+  ExpiresByType image/png   "access plus 1 year"
+  ExpiresByType image/webp  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css    "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

@@ -1,44 +1,52 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data.js';
-import { getLanguage, onLangChange } from '../i18n.js';
+import { getLanguage } from '../i18n.js';
+import { revealOnScroll } from '../utils/animations.js';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export async function renderProject(app, projectId) {
   const project = projectsData.find(p => p.id === projectId);
+
   if (!project) {
-    app.innerHTML = `<h1 style="text-align:center; padding-top: 100px;">Project not found</h1>`;
+    app.innerHTML = `
+      <div class="not-found-page page-container">
+        <h1>404</h1>
+        <p data-i18n="project_not_found">Project not found.</p>
+        <a href="/" data-link class="btn-primary" data-i18n="back_to_home">← Back to Home</a>
+      </div>
+    `;
     return;
   }
-  
-  const lang = getLanguage();
+
+  const lang  = getLanguage();
   const title = project.title[lang] || project.title.en;
-  
-  let imagesHTML = project.images.map(img => `
-    <div class="project-detail-image" style="margin-bottom: 2rem;">
-      <img src="${img}" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" alt="${title} view" loading="lazy" />
+  const desc  = project.description[lang] || project.description.en;
+
+  const imagesHTML = project.images.map(img => `
+    <div class="project-detail-image">
+      <img src="${img}" alt="${title}" loading="lazy" />
     </div>
   `).join('');
 
   app.innerHTML = `
-    <div class="page-container project-page" style="padding-top: 100px; max-width: 1000px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
-      <h1 class="page-title" style="margin-top: 2rem; font-size: 3rem;">${title}</h1>
-      <p style="text-align:center; max-width: 800px; margin: 0 auto; margin-bottom: 4rem; color: rgba(255,255,255,0.7); font-size: 1.2rem;">${project.description[lang] || project.description.en}</p>
-      
+    <div class="page-container page-padded medium project-page">
+      <h1 class="page-title" style="margin-top:2rem;">${title}</h1>
+      <p style="text-align:center; max-width:700px; margin:0 auto 4rem; font-size:1.15rem; opacity:0.8;">${desc}</p>
+
       <div class="project-detail-gallery">
-         ${imagesHTML}
+        ${imagesHTML}
       </div>
-      
-      <div style="text-align:center; margin-top: 4rem; margin-bottom: 4rem;">
-         <a href="/" data-link class="btn-primary" style="text-decoration: none;">&larr; Back to Home</a>
+
+      <div class="project-back-btn">
+        <a href="/" data-link class="btn-primary" data-i18n="back_to_home">← Back to Home</a>
       </div>
     </div>
   `;
 
-  // We can add simple entrance GSAP animation here if we want!
-  setTimeout(() => {
-    import('gsap').then(({ gsap }) => {
-      gsap.fromTo(".project-detail-image img", 
-         { opacity: 0, y: 50 },
-         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power2.out" }
-      );
-    });
-  }, 100);
+  // Staggered scroll-reveal for gallery images
+  requestAnimationFrame(() => {
+    revealOnScroll('.project-detail-image', { y: 40, stagger: 0.08, start: 'top 90%' });
+  });
 }

@@ -1,57 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4cfbe" />
+
+  <!-- SEO -->
   <title>Nina Marmaridou | Interior Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Nina Marmaridou – Elegant interior and exterior design for residential and commercial spaces across Greece. Explore a portfolio of timeless, bespoke projects." />
+  <link rel="canonical" href="https://ninamarmaridou.com/" />
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://ninamarmaridou.com/" />
+  <meta property="og:title"       content="Nina Marmaridou | Interior Design" />
+  <meta property="og:description" content="Elegant interior and exterior design for residential and commercial spaces across Greece." />
+  <meta property="og:image"       content="https://ninamarmaridou.com/projects/kifisia/kifisia1.jpg" />
+  <meta property="og:locale"      content="el_GR" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Nina Marmaridou | Interior Design" />
+  <meta name="twitter:description" content="Elegant interior and exterior design for residential and commercial spaces across Greece." />
+  <meta name="twitter:image"       content="https://ninamarmaridou.com/projects/kifisia/kifisia1.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
+  <!-- Google Fonts — preconnect first to avoid blocking render -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- SPA deep-link restore (for GitHub Pages 404.html redirect trick) -->
+  <script>
+    (function () {
+      var r = new URLSearchParams(window.location.search).get('r');
+      if (r) window.history.replaceState(null, null, r);
+    })();
+  </script>
 </head>
 
 <body>
-  <!-- Header -->
-  <header class="navbar">
+  <!-- ── Header ── -->
+  <header class="navbar" role="banner">
     <div class="logo">
-      <a href="/" data-link>
-        <img src="/logo.svg" alt="Nina Marmaridou Logo" class="logo-img">
+      <a href="/" data-link aria-label="Nina Marmaridou – Home">
+        <img src="/logo.svg" alt="Nina Marmaridou Logo" class="logo-img" />
       </a>
     </div>
-    <nav class="nav-links">
-      <a href="/" data-link data-i18n="nav_home">Home</a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/"        data-link data-i18n="nav_home">Home</a>
       <a href="/services" data-link data-i18n="nav_services">Services</a>
       <a href="/articles" data-link data-i18n="nav_articles">Articles</a>
-      <a href="/about" data-link data-i18n="nav_about">About</a>
+      <a href="/about"   data-link data-i18n="nav_about">About</a>
       <a href="/contact" data-link data-i18n="nav_contact">Contact</a>
     </nav>
-    <div class="lang-switcher">
-      <button id="lang-el" class="lang-btn">EL</button>
-      <span class="lang-sep" style="color: var(--text-color); opacity: 0.3;">|</span>
-      <button id="lang-en" class="lang-btn active">EN</button>
+
+    <div class="lang-switcher" role="group" aria-label="Language selection">
+      <button id="lang-el" class="lang-btn active" aria-label="Εναλλαγή σε Ελληνικά" aria-pressed="true">EL</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button id="lang-en" class="lang-btn" aria-label="Switch to English" aria-pressed="false">EN</button>
     </div>
-    <!-- Hamburger for mobile -->
-    <button class="menu-toggle" id="mobile-menu-btn">
-      <span></span><span></span><span></span>
+
+    <!-- Hamburger (mobile) -->
+    <button
+      class="menu-toggle"
+      id="mobile-menu-btn"
+      aria-label="Άνοιγμα μενού"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
   </header>
 
-  <!-- Mobile Nav -->
-  <div class="mobile-nav" id="mobile-nav">
-    <nav class="mobile-nav-links">
-      <a href="/" data-link data-i18n="nav_home" class="mobile-link">Home</a>
+  <!-- ── Mobile Nav ── -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <nav class="mobile-nav-links" aria-label="Mobile navigation">
+      <a href="/"        data-link data-i18n="nav_home"     class="mobile-link">Home</a>
       <a href="/services" data-link data-i18n="nav_services" class="mobile-link">Services</a>
       <a href="/articles" data-link data-i18n="nav_articles" class="mobile-link">Articles</a>
-      <a href="/about" data-link data-i18n="nav_about" class="mobile-link">About</a>
-      <a href="/contact" data-link data-i18n="nav_contact" class="mobile-link">Contact</a>
+      <a href="/about"   data-link data-i18n="nav_about"    class="mobile-link">About</a>
+      <a href="/contact" data-link data-i18n="nav_contact"  class="mobile-link">Contact</a>
     </nav>
   </div>
 
-  <!-- Main Content App Mount Point -->
-  <main id="app"></main>
+  <!-- ── Main SPA mount ── -->
+  <main id="app" role="main"></main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> Nina Marmaridou. <span data-i18n="footer_rights">All rights reserved.</span> | <a href="/privacy" data-link data-i18n="privacy_policy" style="text-decoration: underline;">Privacy Policy</a></p>
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <p>
+      &copy; <span id="year"></span> Nina Marmaridou.
+      <span data-i18n="footer_rights">All rights reserved.</span>
+      |
+      <a href="/privacy" data-link data-i18n="privacy_policy" class="footer-link">Privacy Policy</a>
+    </p>
   </footer>
 
   <script type="module" src="/src/main.js"></script>
