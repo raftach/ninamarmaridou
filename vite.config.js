@@ -9,10 +9,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // Split animation libraries into a separate chunk so they load in parallel
-        // with the main bundle rather than blocking it.
-        manualChunks: {
-          'vendor-animation': ['gsap', 'lenis'],
+        // Vite 8 (Rolldown) requires manualChunks to be a function, not an object.
+        // Splits animation libraries into a separate chunk for parallel loading.
+        manualChunks(id) {
+          if (id.includes('gsap') || id.includes('lenis')) {
+            return 'vendor-animation';
+          }
         },
       },
     },
