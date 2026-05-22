@@ -29,10 +29,6 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
-  <!-- Google Fonts — preconnect first to avoid blocking render -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <!-- SPA deep-link restore (for GitHub Pages 404.html redirect trick) -->
   <script>
@@ -52,27 +48,19 @@
       </a>
     </div>
 
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="/"        data-link data-i18n="nav_home">Home</a>
-      <a href="/services" data-link data-i18n="nav_services">Services</a>
-      <a href="/articles" data-link data-i18n="nav_articles">Articles</a>
-      <a href="/about"   data-link data-i18n="nav_about">About</a>
-      <a href="/contact" data-link data-i18n="nav_contact">Contact</a>
-    </nav>
-
     <div class="lang-switcher" role="group" aria-label="Language selection">
       <button id="lang-el" class="lang-btn active" aria-label="Εναλλαγή σε Ελληνικά" aria-pressed="true">EL</button>
       <span class="lang-sep" aria-hidden="true">|</span>
       <button id="lang-en" class="lang-btn" aria-label="Switch to English" aria-pressed="false">EN</button>
     </div>
 
-    <!-- Hamburger (mobile) -->
+    <!-- Hamburger — always visible -->
     <button
       class="menu-toggle"
       id="mobile-menu-btn"
       aria-label="Άνοιγμα μενού"
       aria-expanded="false"
-      aria-controls="mobile-nav"
+      aria-controls="fullscreen-menu"
     >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -80,15 +68,41 @@
     </button>
   </header>
 
-  <!-- ── Mobile Nav ── -->
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <nav class="mobile-nav-links" aria-label="Mobile navigation">
-      <a href="/"        data-link data-i18n="nav_home"     class="mobile-link">Home</a>
-      <a href="/services" data-link data-i18n="nav_services" class="mobile-link">Services</a>
-      <a href="/articles" data-link data-i18n="nav_articles" class="mobile-link">Articles</a>
-      <a href="/about"   data-link data-i18n="nav_about"    class="mobile-link">About</a>
-      <a href="/contact" data-link data-i18n="nav_contact"  class="mobile-link">Contact</a>
-    </nav>
+  <!-- ── Full-screen menu overlay ── -->
+  <div class="fullscreen-menu" id="fullscreen-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+
+    <button class="fmenu-close" id="fmenu-close" aria-label="Κλείσιμο μενού">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
+      <span>Close</span>
+    </button>
+
+    <!-- Left panel: Nina's portrait -->
+    <div class="fmenu-panel fmenu-left" aria-hidden="true">
+      <!-- Replace nina-portrait.jpg with an actual portrait photo of Nina -->
+      <img src="/nina-portrait.jpg" alt="Nina Marmaridou" class="fmenu-portrait"
+           onerror="this.closest('.fmenu-left').classList.add('fmenu-left--no-photo')" />
+    </div>
+
+    <!-- Right panel: nav links + social -->
+    <div class="fmenu-panel fmenu-right">
+      <nav class="fmenu-nav" aria-label="Site navigation">
+        <a href="/"         data-link data-i18n="nav_home"     class="fmenu-link">Home</a>
+        <a href="/work"     data-link data-i18n="nav_work"     class="fmenu-link">Work</a>
+        <a href="/services" data-link data-i18n="nav_services" class="fmenu-link">Services</a>
+        <a href="/articles" data-link data-i18n="nav_articles" class="fmenu-link">Articles</a>
+        <a href="/about"    data-link data-i18n="nav_about"    class="fmenu-link">About</a>
+        <a href="/contact"  data-link data-i18n="nav_contact"  class="fmenu-link">Contact</a>
+      </nav>
+      <div class="fmenu-social">
+        <a href="https://www.instagram.com/ninamarmaridou" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ninamarmaridou" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.94a8.16 8.16 0 0 0 4.77 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 
   <!-- ── Main SPA mount ── -->
@@ -96,15 +110,31 @@
 
   <!-- ── Footer ── -->
   <footer class="footer" role="contentinfo">
-    <p>
-      &copy; <span id="year"></span> Nina Marmaridou.
-      <span data-i18n="footer_rights">All rights reserved.</span>
-      |
-      <a href="/privacy" data-link data-i18n="privacy_policy" class="footer-link">Privacy Policy</a>
-    </p>
+    <div class="footer-inner">
+      <p class="footer-copy">
+        &copy; <span id="year"></span> All rights reserved. Website developed by
+        <a href="https://www.creativemastersagency.com/" target="_blank" rel="noopener noreferrer" class="footer-link footer-agency">Creative Masters Agency</a>
+        <span class="footer-sep" aria-hidden="true"> | </span>
+        <a href="/privacy" data-link data-i18n="privacy_policy" class="footer-link">Privacy Policy</a>
+      </p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/ninamarmaridou" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer-social-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ninamarmaridou" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="footer-social-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.94a8.16 8.16 0 0 0 4.77 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/></svg>
+        </a>
+      </div>
+    </div>
   </footer>
 
   <script type="module" src="/src/main.js"></script>
+
+  <!-- Frame overlay bars – keep the picture frame visible over scrolling content -->
+  <div class="frame-bar frame-top"    aria-hidden="true"></div>
+  <div class="frame-bar frame-bottom" aria-hidden="true"></div>
+  <div class="frame-bar frame-left"   aria-hidden="true"></div>
+  <div class="frame-bar frame-right"  aria-hidden="true"></div>
 </body>
 
 </html>

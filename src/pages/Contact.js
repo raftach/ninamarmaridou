@@ -13,41 +13,36 @@ const TIKTOK_URL    = 'https://www.tiktok.com/@ninamarmaridou';
 
 export async function renderContact(app) {
   app.innerHTML = `
-    <div class="page-container page-padded medium contact-page">
-      <h1 class="page-title" data-i18n="contact_title" style="margin-top:0;">Get In Touch</h1>
-      <p style="text-align:center; max-width:700px; margin:0 auto 3rem; opacity:0.8; font-size:1.1rem;"
-         data-i18n="contact_intro">We are here to listen to you.</p>
+    <div class="contact-page">
+
+      <!-- Hero Header -->
+      <section class="page-hero contact-hero">
+        <div class="page-hero-bg">
+          <img src="${import.meta.env.BASE_URL}Home/creative-composition-of-living-room-interior-with-2024-10-17-17-47-29-utc.jpg" alt="" aria-hidden="true" />
+        </div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+          <span class="page-hero-eyebrow">Contact</span>
+          <h1 class="page-hero-title" data-i18n="contact_title">Let's Work Together</h1>
+          <p class="page-hero-sub" data-i18n="contact_intro">We'd love to hear about your project. Fill in the form below or reach out directly.</p>
+        </div>
+      </section>
 
       <div class="contact-layout">
 
         <!-- ── Contact form ── -->
-        <div class="contact-card glass-panel">
+        <div class="contact-form-panel">
           <form class="contact-form" id="contact-form" novalidate>
-            <!-- Honeypot anti-spam (hidden from users) -->
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
             <div class="form-group">
               <label for="contact-name" class="form-label" data-i18n="contact_form_name">Your Name</label>
-              <input
-                type="text"
-                id="contact-name"
-                name="name"
-                class="form-input"
-                required
-                data-i18n="contact_form_name"
-              />
+              <input type="text" id="contact-name" name="name" class="form-input" required />
             </div>
 
             <div class="form-group">
               <label for="contact-email" class="form-label" data-i18n="contact_form_email">Your Email</label>
-              <input
-                type="email"
-                id="contact-email"
-                name="email"
-                class="form-input"
-                required
-                data-i18n="contact_form_email"
-              />
+              <input type="email" id="contact-email" name="email" class="form-input" required />
             </div>
 
             <div class="form-group">
@@ -71,26 +66,13 @@ export async function renderContact(app) {
                 </label>
               </div>
               <div id="other-service-container" style="display:none; margin-top:0.5rem;">
-                <input
-                  type="text"
-                  id="other-service-input"
-                  name="other_service"
-                  class="form-input"
-                  data-i18n="other_service_placeholder"
-                />
+                <input type="text" id="other-service-input" name="other_service" class="form-input" data-i18n="other_service_placeholder" />
               </div>
             </div>
 
             <div class="form-group">
               <label for="contact-message" class="form-label" data-i18n="contact_form_message">Message</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows="5"
-                class="form-textarea"
-                required
-                data-i18n="contact_form_message"
-              ></textarea>
+              <textarea id="contact-message" name="message" rows="5" class="form-textarea" required></textarea>
             </div>
 
             <div class="form-group">
@@ -103,40 +85,34 @@ export async function renderContact(app) {
               </label>
             </div>
 
-            <button type="submit" class="btn-primary form-submit-btn" data-i18n="contact_form_submit">
-              Send Message
-            </button>
-
+            <button type="submit" class="btn-primary form-submit-btn" data-i18n="contact_form_submit">Send Message</button>
             <div id="form-feedback"></div>
           </form>
         </div>
 
         <!-- ── Contact info ── -->
-        <div class="contact-info-section glass-panel">
-          <h2 data-i18n="contact_location">Location</h2>
-          <p class="contact-detail">
-            📍 <span data-i18n="contact_address">Valaoritou 4, Thessaloniki, 54626</span>
-          </p>
-          <p class="contact-detail">
-            ✉️ <a href="mailto:ninamarmaridou@gmail.com">ninamarmaridou@gmail.com</a>
-          </p>
-
-          <div>
-            <p class="form-label" style="margin-bottom:0.75rem;" data-i18n="contact_social">Follow Us</p>
+        <div class="contact-info-panel">
+          <div class="contact-info-block">
+            <span class="contact-info-label">Studio</span>
+            <p class="contact-info-value" data-i18n="contact_address">Valaoritou 4, Thessaloniki, 54626</p>
+          </div>
+          <div class="contact-info-block">
+            <span class="contact-info-label">Email</span>
+            <p class="contact-info-value"><a href="mailto:ninamarmaridou@gmail.com">ninamarmaridou@gmail.com</a></p>
+          </div>
+          <div class="contact-info-block">
+            <span class="contact-info-label" data-i18n="contact_social">Follow</span>
             <div class="social-links">
               <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener noreferrer" class="social-link">
-                <!-- Instagram icon (SVG inline) -->
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 Instagram
               </a>
               <a href="${TIKTOK_URL}" target="_blank" rel="noopener noreferrer" class="social-link">
-                <!-- TikTok icon (simple musical note as placeholder) -->
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.94a8.16 8.16 0 0 0 4.77 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/></svg>
                 TikTok
               </a>
             </div>
           </div>
-
           <div class="contact-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.8716382022716!2d22.9366601!3d40.6380629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8390757a3e7db%3A0xc66579cd50e4ed!2sValaoritou%204%2C%20Thessaloniki%20546%2026%2C%20Greece!5e0!3m2!1sen!2sus!4v1714493322111!5m2!1sen!2sus"
@@ -154,11 +130,11 @@ export async function renderContact(app) {
 
   // Wait for DOM then wire interactivity
   requestAnimationFrame(() => {
-    gsap.fromTo('.contact-card, .contact-info-section',
+    gsap.from('.page-hero-content', { y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
+    gsap.fromTo('.contact-form-panel, .contact-info-panel',
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out' }
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out', delay: 0.1 }
     );
-
     wireForm();
   });
 }

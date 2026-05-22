@@ -1,3 +1,4 @@
+import { gsap } from 'gsap';
 import { getLanguage } from '../i18n.js';
 import { articlesData } from '../data.js';
 import { revealOnScroll } from '../utils/animations.js';
@@ -25,50 +26,85 @@ function renderArticle(app, articleId, lang) {
     return;
   }
 
-  const contentBlocks = article.content[lang] || article.content.en;
+  const blocks = article.content[lang] || article.content.en;
+  const title  = article.title[lang] || article.title.en;
+  const b0     = blocks[0] || {};
+  const b1     = blocks[1] || {};
 
-  const blocksHTML = contentBlocks.map(block => {
-    const isRight = block.type === 'text-img-right';
-    return `
-      <div class="article-block ${isRight ? '' : 'reverse'}">
-        <div class="article-text glass-panel">
-          <p>${block.text}</p>
-        </div>
-        <div class="article-img">
-          <img src="${block.img}" alt="" loading="lazy" />
-        </div>
-      </div>
-    `;
-  }).join('');
+  // Extract first sentence as pull quote, rest as body
+  const sentences0  = b0.text ? b0.text.split(/(?<=\.)\s+/) : [];
+  const pullQuote   = sentences0[0] || '';
+  const bodyText0   = sentences0.slice(1).join(' ');
 
   app.innerHTML = `
-    <div class="page-container page-padded medium article-page">
-      <button
-        onclick="window.history.back()"
-        style="background:none; border:none; color:var(--accent-color); font-size:1rem;
-               cursor:pointer; margin-bottom:2rem; font-family:inherit;"
-        data-i18n="back_to_articles"
-      >← Back to Articles</button>
+    <article class="mag-article">
 
-      <h1 class="page-title" style="margin-top:0; font-size:3rem; text-align:left;">
-        ${article.title[lang] || article.title.en}
-      </h1>
-      <p style="opacity:0.5; margin-bottom:4rem;">${article.date}</p>
-
-      <div class="article-content">
-        ${blocksHTML}
+      <!-- ① Back link -->
+      <div class="mag-back">
+        <button onclick="window.history.back()" class="mag-back-btn" data-i18n="back_to_articles">← Back to Articles</button>
       </div>
 
-      <div class="article-footer">
-        <h3 data-i18n="article_footer_title">Experience it in motion</h3>
-        <a href="${article.videoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary"
-           data-i18n="watch_instagram">Watch on Instagram</a>
+      <!-- ② Hero: full-bleed image with title overlay -->
+      <div class="mag-hero">
+        <img src="${b0.img || article.coverImage || ''}" alt="${title}" />
+        <div class="mag-hero-overlay"></div>
+        <div class="mag-hero-content">
+          <span class="mag-hero-eyebrow">${lang === 'el' ? 'Άρθρο' : 'Article'} &nbsp;·&nbsp; ${article.date}</span>
+          <h1 class="mag-hero-title">${title}</h1>
+        </div>
       </div>
-    </div>
+
+      <!-- ③ Intro: pull quote left · drop-cap body right -->
+      <div class="mag-intro">
+        <div class="mag-pull-quote">
+          <span class="mag-pull-mark">"</span>
+          <p class="mag-pull-text">${pullQuote}</p>
+        </div>
+        <div class="mag-intro-body">
+          <p class="mag-drop-cap">${bodyText0}</p>
+        </div>
+      </div>
+
+      <!-- ④ Full-width feature image -->
+      ${b1.img ? `
+      <div class="mag-full-img">
+        <img src="${b1.img}" alt="" loading="lazy" />
+      </div>` : ''}
+
+      <!-- ⑤ Editorial spread: watermark number · text · offset detail -->
+      <div class="mag-spread">
+        <div class="mag-spread-aside">
+          <span class="mag-spread-num">02</span>
+          <div class="mag-spread-rule"></div>
+          <p class="mag-spread-label">${lang === 'el' ? 'Σχεδιαστική Σκέψη' : 'Design Thinking'}</p>
+        </div>
+        <div class="mag-spread-body">
+          <p>${b1.text || ''}</p>
+        </div>
+        ${b0.img ? `
+        <div class="mag-spread-img">
+          <img src="${b0.img}" alt="" loading="lazy" />
+        </div>` : ''}
+      </div>
+
+      <!-- ⑥ Closing CTA -->
+      <div class="mag-cta">
+        <span class="mag-cta-label" data-i18n="article_footer_title">Experience it in motion</span>
+        <a href="${article.videoUrl}" target="_blank" rel="noopener noreferrer" class="mag-cta-link">
+          <span data-i18n="watch_instagram">Watch on Instagram</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+
+    </article>
   `;
 
   requestAnimationFrame(() => {
-    revealOnScroll('.article-block', { y: 40, stagger: 0.15 });
+    gsap.from('.mag-hero-content', { y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
+    revealOnScroll('.mag-intro',     { y: 50, stagger: 0 });
+    revealOnScroll('.mag-full-img',  { y: 30, stagger: 0 });
+    revealOnScroll('.mag-spread',    { y: 50, stagger: 0 });
+    revealOnScroll('.mag-cta',       { y: 30, stagger: 0 });
   });
 }
 
@@ -76,19 +112,23 @@ function renderArticle(app, articleId, lang) {
 function renderArticleList(app, lang) {
   const cardsHTML = articlesData.map(article => {
     const title = article.title[lang] || article.title.en;
+    const coverImg = article.coverImage || article.images?.[0] || '';
     return `
       <div class="article-card-wrapper" data-article-id="${article.id}">
-        <div class="article-shape">
-          <h3 style="font-size:1.5rem; margin:0;">${title}</h3>
-          <p style="opacity:0.7; font-size:0.9rem; margin-top:1rem;">${article.date}</p>
+        <div class="article-card-img-wrap">
+          ${coverImg
+            ? `<img src="${coverImg}" alt="${title}" loading="lazy" />`
+            : `<div class="article-card-placeholder"></div>`}
+          <div class="article-card-info">
+            <h3 class="article-card-title">${title}</h3>
+            <p class="article-card-date">${article.date}</p>
+          </div>
         </div>
         <div class="article-options-overlay" id="options-${article.id}">
           <button class="article-options-close" data-close="${article.id}" aria-label="Close">&times;</button>
-          <a href="/article/${article.id}" data-link class="btn-primary"
-             style="background:transparent; border-color:#fff; color:#fff; width:80%; text-align:center;"
+          <a href="/article/${article.id}" data-link class="article-overlay-btn"
              data-i18n="read_article">Read Article</a>
-          <a href="${article.videoUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary"
-             style="background:#fff; color:#000; border-color:#fff; width:80%; text-align:center;"
+          <a href="${article.videoUrl}" target="_blank" rel="noopener noreferrer" class="article-overlay-btn article-overlay-btn--ghost"
              data-i18n="watch_video">Watch Video</a>
         </div>
       </div>
@@ -96,11 +136,18 @@ function renderArticleList(app, lang) {
   }).join('');
 
   app.innerHTML = `
-    <div class="page-container page-padded articles-page">
-      <h1 class="page-title" data-i18n="nav_articles" style="margin-top:0;">Articles</h1>
-      <p class="articles-subtitle" data-i18n="articles_subtitle">
-        Thoughts, insights, and stories on elevated interior design.
-      </p>
+    <div class="articles-page">
+      <section class="page-hero articles-hero">
+        <div class="page-hero-bg">
+          <img src="${import.meta.env.BASE_URL}Home/3d-rendering-wood-modern-luxury-bedroom-suite-with-2025-02-24-23-55-39-utc.jpg" alt="" aria-hidden="true" />
+        </div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+          <span class="page-hero-eyebrow">${lang === 'el' ? 'Άρθρα & Βίντεο' : 'Articles & Videos'}</span>
+          <h1 class="page-hero-title" data-i18n="nav_articles">Articles</h1>
+          <p class="page-hero-sub" data-i18n="articles_subtitle">Thoughts, insights, and stories on elevated interior design.</p>
+        </div>
+      </section>
       <div class="articles-grid" id="articles-grid">
         ${cardsHTML}
       </div>
@@ -108,6 +155,7 @@ function renderArticleList(app, lang) {
   `;
 
   requestAnimationFrame(() => {
+    gsap.from('.page-hero-content', { y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
     revealOnScroll('.article-card-wrapper', { y: 40, stagger: 0.1 });
     wireArticleCards();
   });
@@ -119,23 +167,23 @@ function wireArticleCards() {
   if (!grid) return;
 
   grid.addEventListener('click', e => {
-    // Open overlay when shape is clicked
-    const shape = e.target.closest('.article-shape');
-    if (shape) {
-      const wrapper = shape.closest('.article-card-wrapper');
-      if (!wrapper) return;
-      // Close all other overlays first
-      grid.querySelectorAll('.article-options-overlay.open').forEach(el => el.classList.remove('open'));
-      wrapper.querySelector('.article-options-overlay')?.classList.add('open');
-      return;
-    }
+    const card = e.target.closest('.article-card-wrapper');
+    if (!card) return;
 
-    // Close overlay via × button
+    // Close button
     const closeBtn = e.target.closest('[data-close]');
     if (closeBtn) {
       e.stopPropagation();
-      const id = closeBtn.dataset.close;
-      document.getElementById(`options-${id}`)?.classList.remove('open');
+      card.querySelector('.article-options-overlay')?.classList.remove('open');
+      return;
     }
+
+    // Don't re-open if clicking overlay links
+    if (e.target.closest('.article-overlay-btn')) return;
+
+    // Close all, open this one
+    grid.querySelectorAll('.article-options-overlay.open').forEach(el => el.classList.remove('open'));
+    const overlay = card.querySelector('.article-options-overlay');
+    overlay?.classList.add('open');
   });
 }

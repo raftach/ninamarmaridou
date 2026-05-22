@@ -1,12 +1,19 @@
 import { gsap } from 'gsap';
-import { updateDOM, dict, getLanguage } from './i18n.js';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { updateDOM, dict, getLanguage, clearLangListeners } from './i18n.js';
 import { lenis } from './scroll.js';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Strip Vite base path so routes like '/work' match whether base is '/' or '/ninamarmaridou/'
+const BASE = (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 import { renderHome }     from './pages/Home.js';
 import { renderServices } from './pages/Services.js';
 import { renderAbout }    from './pages/About.js';
 import { renderContact }  from './pages/Contact.js';
 import { renderArticles } from './pages/Articles.js';
 import { renderPrivacy }  from './pages/Privacy.js';
+import { renderWork }     from './pages/Work.js';
 
 const routes = {
   '/':         renderHome,
@@ -15,6 +22,7 @@ const routes = {
   '/contact':  renderContact,
   '/articles': renderArticles,
   '/privacy':  renderPrivacy,
+  '/work':     renderWork,
 };
 
 const routeTitles = {
@@ -24,10 +32,16 @@ const routeTitles = {
   '/contact':  () => `${dict.nav_contact[getLanguage()]} – Nina Marmaridou`,
   '/articles': () => `${dict.nav_articles[getLanguage()]} – Nina Marmaridou`,
   '/privacy':  () => `${dict.privacy_policy[getLanguage()]} – Nina Marmaridou`,
+  '/work':     () => `${dict.nav_work[getLanguage()]} – Nina Marmaridou`,
 };
 
 export function navigateTo(url) {
-  history.pushState(null, null, url);
+  history.pushState(null, null, BASE + url);
+  // Close fullscreen menu if open
+  document.getElementById('fullscreen-menu')?.classList.remove('is-open');
+  document.getElementById('fullscreen-menu')?.setAttribute('aria-hidden', 'true');
+  document.getElementById('mobile-menu-btn')?.classList.remove('active');
+  document.body.classList.remove('menu-open');
   router();
 }
 
@@ -41,15 +55,18 @@ function transitionIn(app) {
 }
 
 export async function router() {
-  const path   = location.pathname;
-  const app    = document.getElementById('app');
+  const raw  = location.pathname;
+  const path = BASE && raw.startsWith(BASE) ? raw.slice(BASE.length) || '/' : raw;
+  const app  = document.getElementById('app');
 
   // Update active nav link
-  document.querySelectorAll('.nav-links a, .mobile-link').forEach(link => {
+  document.querySelectorAll('.fmenu-link').forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === path);
   });
 
   await transitionOut(app);
+  ScrollTrigger.getAll().forEach(st => st.kill());
+  clearLangListeners();
   app.innerHTML = '';
 
   if (path.startsWith('/project/')) {

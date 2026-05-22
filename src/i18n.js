@@ -10,6 +10,7 @@ const HTML_KEYS = new Set([
 
 export const dict = {
   nav_home:     { en: 'Home',         el: 'Αρχική' },
+  nav_work:     { en: 'Work',         el: 'Έργα' },
   nav_services: { en: 'Services',     el: 'Υπηρεσίες' },
   nav_about:    { en: 'About',        el: 'Προφίλ' },
   nav_articles: { en: 'Articles',     el: 'Άρθρα' },
@@ -19,14 +20,23 @@ export const dict = {
 
   // Home
   home_hero_title:    { en: 'Crafting Spaces. Shaping Experiences.', el: 'Δημιουργούμε Χώρους. Πλάθουμε Εμπειρίες.' },
+  home_hero_title_1:  { en: 'Crafting Spaces.', el: 'Δημιουργούμε Χώρους.' },
+  home_hero_title_2:  { en: 'Shaping Experiences.', el: 'Πλάθουμε Εμπειρίες.' },
   home_hero_subtitle: { en: 'Interior Design & Architecture by Nina Marmaridou.', el: 'Εσωτερική Διακόσμηση & Αρχιτεκτονική από την Νίνα Μαρμαρίδου.' },
+  home_hero_subtitle_pre: { en: 'Interior Design & Architecture by ', el: 'Εσωτερική Διακόσμηση & Αρχιτεκτονική από την ' },
+  home_hero_name:     { en: 'Nina Marmaridou.', el: 'Νίνα Μαρμαρίδου.' },
   home_motto:         { en: '"Designing the next chapter of your life"', el: '"Σχεδιάζουμε το επόμενο κεφάλαιο της ζωής σας"' },
   home_philosophy_title: { en: 'Design Philosophy', el: 'Φιλοσοφία Σχεδιασμού' },
   home_philosophy_text: {
     en: 'Nina Marmaridou\'s philosophy is based on the harmonious coexistence of function and aesthetics. Every project starts with an in-depth analysis of the client\'s needs, existing structures, and environment. The goal is to create timeless spaces, where functionality meets aesthetics through carefully selected materials.',
     el: 'Η φιλοσοφία της Νίνας Μαρμαρίδου βασίζεται στην αρμονική συνύπαρξη της λειτουργίας και της αισθητικής του χώρου. Κάθε έργο ξεκινά με μια εις βάθος ανάλυση των αναγκών του πελάτη, των υφιστάμενων δομών και του περιβάλλοντος. Στόχος είναι η δημιουργία διαχρονικών χώρων, όπου η λειτουργικότητα συναντά την αισθητική μέσα από προσεκτικά επιλεγμένα υλικά.',
   },
-  explore_projects: { en: 'Explore Project', el: 'Εξερευνήστε το Έργο' },
+  explore_projects:      { en: 'Explore Projects', el: 'Εξερευνήστε τα Έργα' },
+  before_after_title:    { en: 'Before & After',                         el: 'Πριν & Μετά' },
+  before_after_subtitle: { en: 'Drag to explore the transformation.',    el: 'Σύρετε για να δείτε τη μεταμόρφωση.' },
+  before_label:          { en: 'Before',                                 el: 'Πριν' },
+  after_label:           { en: 'After',                                  el: 'Μετά' },
+  work_hero_subtitle: { en: 'A curated portfolio of residential and commercial spaces.', el: 'Μια επιλεγμένη συλλογή κατοικιών και επαγγελματικών χώρων.' },
   projects_title:   { en: 'Featured Works',  el: 'Επιλεγμένα Έργα' },
   partners_title:   { en: 'Partners',        el: 'Συνεργάτες' },
   partners_text: {
@@ -58,6 +68,12 @@ export const dict = {
 
   // About
   about_title: { en: 'About Nina', el: 'Σχετικά με τη Νίνα' },
+  about_quote: { en: '"Designing the next chapter of your life — one space at a time."', el: '"Σχεδιάζοντας το επόμενο κεφάλαιο της ζωής σας — έναν χώρο τη φορά."' },
+  about_quote_cite: { en: '— Nina Marmaridou', el: '— Νίνα Μαρμαρίδου' },
+  about_credential_years:    { en: 'Years of Experience',  el: 'Χρόνια Εμπειρίας' },
+  about_credential_projects: { en: 'Projects Completed',   el: 'Ολοκληρωμένα Έργα' },
+  about_credential_awards:   { en: 'Design Awards',        el: 'Βραβεία Σχεδιασμού' },
+  about_credential_cities:   { en: 'Cities',               el: 'Πόλεις' },
   // HTML content — rendered with innerHTML (see HTML_KEYS)
   about_text: {
     en: '<p>I am Nina Marmaridou, an interior designer based in Thessaloniki, with years of experience in interior design and decoration.</p><p>My goal is to create spaces that reflect the personality of the people living in them, with a perfect balance between functionality and aesthetics.</p><p>From residential renovations to commercial spaces, my approach is always personal and meticulous. I work with consistency, passion, and attention to detail, offering proposals that harmoniously combine modern aesthetics with timeless value.</p><p>I collaborate with architects, craftsmen, and construction teams to provide a comprehensive design experience in every project I undertake.</p>',
@@ -111,13 +127,34 @@ export const dict = {
   back_to_articles:    { en: '← Back to Articles',   el: '← Πίσω στα Άρθρα' },
 
   // Project
-  project_not_found: { en: 'Project not found.',     el: 'Το έργο δεν βρέθηκε.' },
-  back_to_home:      { en: '← Back to Home',         el: '← Πίσω στην Αρχική' },
+  project_not_found: { en: 'Project not found.',       el: 'Το έργο δεν βρέθηκε.' },
+  back_to_home:      { en: '← Back to Home',           el: '← Πίσω στην Αρχική' },
+  stat_location:     { en: 'Location',                 el: 'Τοποθεσία' },
+  stat_type:         { en: 'Type',                     el: 'Τύπος' },
+  stat_year:         { en: 'Completion Year',          el: 'Έτος Ολοκλήρωσης' },
+  stat_area:         { en: 'Gross Built Area',         el: 'Μικτή Δομημένη Επιφάνεια' },
+  related_projects:  { en: 'Related Projects',         el: 'Σχετικά Έργα' },
+  prev_project:      { en: 'Previous Project',         el: 'Προηγούμενο Έργο' },
+  next_project:      { en: 'Next Project',             el: 'Επόμενο Έργο' },
+  view_project:      { en: 'View Project',             el: 'Δείτε το Έργο' },
 
   // 404
   not_found_title: { en: '404',                         el: '404' },
   not_found_text:  { en: 'The page you are looking for does not exist.', el: 'Η σελίδα που ψάχνετε δεν υπάρχει.' },
   not_found_back:  { en: 'Back to Home',                el: 'Αρχική Σελίδα' },
+
+  service_interior_desc: {
+    en: 'We design interior spaces that reflect the personality of our clients — from material and lighting selection to spatial layout. Every detail serves both function and aesthetic, creating environments that feel both timeless and deeply personal.',
+    el: 'Σχεδιάζουμε εσωτερικούς χώρους που αντανακλούν την προσωπικότητα του πελάτη μας — από την επιλογή υλικών και φωτισμού έως τη διάταξη χώρου. Κάθε λεπτομέρεια εξυπηρετεί τόσο τη λειτουργία όσο και την αισθητική, δημιουργώντας περιβάλλοντα που αισθάνονται διαχρονικά.',
+  },
+  service_exterior_desc: {
+    en: 'Our exterior architecture focuses on placing buildings harmoniously within their environment. We work with building morphology, facade materials, and landscaping to create powerful first impressions that endure over time.',
+    el: 'Η εξωτερική αρχιτεκτονική μας εστιάζει στην ανάδειξη του κτιρίου στο περιβάλλον του. Εργαζόμαστε με τη μορφολογία, τα υλικά πρόσοψης και τον περιβάλλοντα χώρο για να δημιουργήσουμε μια ισχυρή πρώτη εντύπωση που διαρκεί.',
+  },
+  service_construction_desc: {
+    en: 'We manage full construction oversight, ensuring every phase is executed with precision and high quality standards. Our collaboration with trusted contractors guarantees results that stand the test of time.',
+    el: 'Αναλαμβάνουμε την πλήρη επίβλεψη της κατασκευής, διασφαλίζοντας ότι κάθε στάδιο εκτελείται με ακρίβεια και υψηλά πρότυπα ποιότητας. Η συνεργασία μας με έμπιστους κατασκευαστές εγγυάται αποτελέσματα που αντέχουν στον χρόνο.',
+  },
 
   // Project fallback
   project_desc_fallback: {
@@ -127,7 +164,7 @@ export const dict = {
 };
 
 let currentLang = 'el';
-const listeners = [];
+let listeners = [];
 
 export function setLanguage(lang) {
   currentLang = lang;
@@ -168,3 +205,5 @@ export function updateDOM() {
 export function getLanguage() { return currentLang; }
 
 export function onLangChange(cb) { listeners.push(cb); }
+
+export function clearLangListeners() { listeners = []; }

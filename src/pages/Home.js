@@ -6,48 +6,58 @@ import { heroEntrance, revealOnScroll } from '../utils/animations.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ─────────────────────────────────────────────────────────────────
+// Project scroll section — split editorial, GSAP horizontal scroll
+// ─────────────────────────────────────────────────────────────────
+function buildProjScrollHTML(projects, lang) {
+  const catLabel = (p) => p.category === 'interior'
+    ? (lang === 'el' ? 'Εσωτερικός Χώρος' : 'Interior Design')
+    : (lang === 'el' ? 'Εξωτερικός Χώρος' : 'Exterior Design');
+
+  const N = projects.length;
+
+  const slides = projects.map((p, idx) => {
+    const title = p.title[lang] || p.title.en;
+    const desc  = (p.description[lang] || p.description.en).split('.')[0] + '.';
+    const cat   = catLabel(p);
+    const num   = String(idx + 1).padStart(2, '0');
+    return `
+      <div class="proj-scroll-slide" data-project-id="${p.id}">
+        <div class="proj-scroll-text">
+          <span class="proj-num">${num}</span>
+          <p class="proj-cat">${cat}</p>
+          <h2 class="proj-scroll-title">${title}</h2>
+          <p class="proj-desc">${desc}</p>
+          <a href="/project/${encodeURIComponent(p.id)}" data-link class="proj-scroll-cta">Explore Project →</a>
+        </div>
+        <div class="proj-scroll-img">
+          <img src="${p.images[0]}" alt="${title}" loading="eager" />
+        </div>
+      </div>`;
+  }).join('');
+
+  return `
+    <section class="proj-scroll-section">
+      <div class="proj-scroll-container">
+        <div class="proj-scroll-wrapper" style="width:calc(${N} * (100vw - var(--frame) * 2))">
+          ${slides}
+        </div>
+        <div class="proj-scroll-progress">
+          ${projects.map((_, i) => `<span class="proj-scroll-dot${i === 0 ? ' active' : ''}"></span>`).join('')}
+        </div>
+      </div>
+    </section>`;
+}
+
 export async function renderHome(app) {
   // Kill any ScrollTriggers left over from a previous render
   ScrollTrigger.getAll().forEach(st => st.kill());
 
   const lang = getLanguage();
 
-  // Build project slides HTML
-  const projectsHTML = projectsData.map((project, idx) => {
-    const imagesHTML = project.images.slice(0, 3).map((img, i) => `
-      <img
-        class="photo photo-${i}"
-        src="${img}"
-        alt="${project.title.en} view ${i + 1}"
-        loading="eager"
-      />
-    `).join('');
-
-    const category = project.category === 'interior'
-      ? (lang === 'el' ? 'Εσωτερικός Χώρος' : 'Interior Design')
-      : (lang === 'el' ? 'Εξωτερικός Χώρος' : 'Exterior Design');
-
-    return `
-      <div class="project-slide" id="project-${idx}"
-           style="background-color:${project.bgColor}; color:${project.textColor || 'var(--text-color)'};">
-        <div class="project-content glass-panel">
-          <h3 class="project-title">${project.title[lang] || project.title.en}</h3>
-          <p class="project-category" style="font-size:0.9vw; text-transform:uppercase; letter-spacing:2px;
-             border:1px solid currentColor; padding:0.3rem 1rem; border-radius:20px;
-             display:inline-block; margin-bottom:1.5rem;">${category}</p>
-          <p class="project-desc" style="opacity:0.8;">${project.description[lang] || project.description.en}</p>
-          <a href="/project/${project.id}" data-link class="btn-primary"
-             style="color:inherit; border-color:inherit;" data-i18n="explore_projects">
-            Explore Project
-          </a>
-        </div>
-        <div class="project-photos">${imagesHTML}</div>
-      </div>
-    `;
-  }).join('');
 
   app.innerHTML = `
-    <div class="page-container home-page" style="padding:0; min-height:100vh;">
+    <div class="home-page">
 
       <!-- ── Hero ── -->
       <section class="hero-section">
@@ -65,55 +75,87 @@ export async function renderHome(app) {
         </video>
         <div class="hero-overlay" aria-hidden="true"></div>
 
-        <div class="hero-content">
-          <h1 class="page-title hero-title" data-i18n="home_hero_title">
-            Crafting Spaces. Shaping Experiences.
-          </h1>
-          <p class="hero-subtitle" data-i18n="home_hero_subtitle">
-            Interior Design &amp; Architecture by Nina Marmaridou.
-          </p>
-          <p class="hero-motto" data-i18n="home_motto">
-            &ldquo;Designing the next chapter of your life&rdquo;
-          </p>
-          <p class="elevated-badge" data-i18n="elevated_identity">Elevated Interior Design</p>
+        <div class="hero-bottom">
+          <!-- Left: title + subtitle -->
+          <div class="hero-content">
+            <h1 class="page-title hero-title">
+              <span data-i18n="home_hero_title_1">Crafting Spaces.</span>
+              <span data-i18n="home_hero_title_2">Shaping Experiences.</span>
+            </h1>
+            <p class="hero-subtitle">
+              <span data-i18n="home_hero_subtitle_pre">Interior Design &amp; Architecture by </span><strong class="hero-name" data-i18n="home_hero_name">Nina Marmaridou.</strong>
+            </p>
+          </div>
+          <!-- Center: scroll indicator -->
           <div class="scroll-indicator" aria-hidden="true">
             <span class="scroll-indicator-text" data-i18n="scroll_to_explore">Scroll to Explore</span>
-            <div class="scroll-indicator-line"></div>
+            <svg class="scroll-indicator-arrow" width="22" height="38" viewBox="0 0 22 38" fill="none" aria-hidden="true">
+              <line x1="11" y1="0" x2="11" y2="24" stroke="rgba(255,255,255,0.55)" stroke-width="1"/>
+              <path d="M3 18 L11 27 L19 18" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- Right: badge -->
+          <div class="hero-right">
+            <p class="elevated-badge" data-i18n="elevated_identity">Elevated Interior Design</p>
           </div>
         </div>
       </section>
 
       <!-- ── Design Philosophy ── -->
-      <section class="philosophy-section" style="padding:6rem 2rem; text-align:center; max-width:900px; margin:0 auto; position:relative; z-index:20;">
-        <div class="glass-panel" style="padding:4rem;">
-          <h2 class="section-title" data-i18n="home_philosophy_title"
-              style="font-size:2.5rem; font-weight:300; text-transform:uppercase; letter-spacing:2px; margin-bottom:2rem;">
-            Design Philosophy
-          </h2>
-          <p style="font-size:1.1rem; line-height:1.85; opacity:0.9;" data-i18n="home_philosophy_text">
-            Nina Marmaridou's philosophy is based on the harmonious coexistence of function and aesthetics.
-          </p>
+      <section class="philosophy-section">
+        <div class="philosophy-inner">
+          <div class="philosophy-left">
+            <span class="philosophy-eyebrow" data-i18n="philosophy_eyebrow">Design Philosophy</span>
+            <h2 class="philosophy-heading" data-i18n="home_philosophy_title">Crafting Spaces That Tell Your Story</h2>
+          </div>
+          <div class="philosophy-right">
+            <p class="philosophy-body" data-i18n="home_philosophy_text">
+              Nina Marmaridou's philosophy is rooted in the harmonious coexistence of function and aesthetics — where every line, material, and light source serves both purpose and beauty. Each project begins with listening: understanding how a space will be lived in, felt, and remembered.
+            </p>
+            <a href="/work" data-link class="philosophy-cta" data-i18n="explore_projects">Explore Projects</a>
+          </div>
         </div>
       </section>
 
-      <!-- ── Horizontal project carousel ── -->
-      <section class="story-container">
-        <div class="story-wrapper" style="width:${projectsData.length * 100}vw;">
-          ${projectsHTML}
-        </div>
-      </section>
+      <!-- ── Project scroll ── -->
+      ${buildProjScrollHTML(projectsData, lang)}
+
+      <!-- ── Before / After ── -->
+      ${(() => {
+        const ba = projectsData.find(p => p.beforeAfter)?.beforeAfter;
+        return ba ? `
+        <section class="before-after-section">
+          <div class="before-after-header">
+            <h2 class="section-title" data-i18n="before_after_title">Before &amp; After</h2>
+            <p class="before-after-subtitle" data-i18n="before_after_subtitle">Drag to explore the transformation.</p>
+          </div>
+          <div class="compare-slider" id="compare-slider">
+            <div class="compare-after">
+              <img src="${ba.after}"  alt="After renovation"  draggable="false" />
+            </div>
+            <div class="compare-before">
+              <img src="${ba.before}" alt="Before renovation" draggable="false" />
+            </div>
+            <div class="compare-handle" id="compare-handle">
+              <span class="compare-line"></span>
+              <span class="compare-diamond"></span>
+            </div>
+            <span class="compare-label compare-label-before" data-i18n="before_label">Before</span>
+            <span class="compare-label compare-label-after"  data-i18n="after_label">After</span>
+          </div>
+        </section>` : '';
+      })()}
 
       <!-- ── Partners ── -->
-      <section class="partners-section" style="padding:5rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
-        <div class="glass-panel" style="padding:4rem;">
-          <h2 class="partners-title" data-i18n="partners_title" style="margin-bottom:1.5rem;">Partners</h2>
-          <p data-i18n="partners_text" style="font-size:1.1rem; opacity:0.9; margin-bottom:3rem;">
-            Every project is a unique design story.
-          </p>
-          <div style="display:flex; justify-content:center; align-items:center; gap:3rem; flex-wrap:wrap;">
-            <img src="${import.meta.env.BASE_URL}partners/cma-logo.svg"  alt="CMA Logo"        class="partner-logo" />
-            <img src="${import.meta.env.BASE_URL}partners/epsilon.svg"   alt="Epsilon Logo"     class="partner-logo" />
-            <img src="${import.meta.env.BASE_URL}partners/florentino.svg" alt="Florentino Logo" class="partner-logo" />
+      <section class="partners-section">
+        <div class="partners-inner">
+          <p class="partners-eyebrow" data-i18n="partners_eyebrow">Trusted Partners</p>
+          <h2 class="partners-title" data-i18n="partners_title">Our Partners</h2>
+          <p class="partners-subtitle" data-i18n="partners_text">Collaborating with leading brands to deliver exceptional spaces.</p>
+          <div class="partners-logos">
+            <img src="${import.meta.env.BASE_URL}partners/cma-logo.svg"   alt="CMA"        class="partner-logo" />
+            <img src="${import.meta.env.BASE_URL}partners/epsilon.svg"    alt="Epsilon"    class="partner-logo" />
+            <img src="${import.meta.env.BASE_URL}partners/florentino.svg" alt="Florentino" class="partner-logo" />
           </div>
         </div>
       </section>
@@ -125,8 +167,10 @@ export async function renderHome(app) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       initHeroAnimations();
-      initCarouselGSAP();
+      initHeroFadeOut();
+      initProjScroll();
       initPhilosophyReveal();
+      initBeforeAfterSlider();
     });
   });
 
@@ -141,9 +185,8 @@ function initHeroAnimations() {
   heroEntrance([
     '.hero-title',
     '.hero-subtitle',
-    '.hero-motto',
-    '.elevated-badge',
     '.scroll-indicator',
+    '.elevated-badge',
   ]);
 }
 
@@ -151,106 +194,99 @@ function initHeroAnimations() {
 // Scroll-reveal for the philosophy section
 // ─────────────────────────────────────────────────────────────────
 function initPhilosophyReveal() {
-  revealOnScroll('.philosophy-section .glass-panel', { y: 50, stagger: 0 });
+  revealOnScroll('.philosophy-inner', { y: 50, stagger: 0 });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Horizontal project carousel — GSAP ScrollTrigger
-//
-// Key fixes vs previous version:
-//  • scrub: 1    — GSAP lerps to scroll position over 1s → no micro-jitter
-//  • ease: "none" on horizontal moves — scrub provides its own easing
-//  • invalidateOnRefresh — recalculates pin on window resize
-//  • loading="eager" on photos — prevents lazy-load flash mid-animation
-//  • xPercent formula: -(100/N)*idx  where N = project count
+// Project scroll — GSAP horizontal pin
 // ─────────────────────────────────────────────────────────────────
-function initCarouselGSAP() {
-  const wrapper = document.querySelector('.story-wrapper');
+function initProjScroll() {
+  const wrapper = document.querySelector('.proj-scroll-wrapper');
   if (!wrapper) return;
 
-  const N = projectsData.length;
-  const totalPhotos = projectsData.reduce((acc, p) => acc + Math.min(3, p.images.length), 0);
-
-  // Total scroll distance: each photo transition ≈ 0.35 × viewport height
-  const scrollDistance = window.innerHeight * totalPhotos * 0.35;
+  const N    = projectsData.length;
+  const dots = [...document.querySelectorAll('.proj-scroll-dot')];
+  const scrollDistance = window.innerHeight * N * 0.9;
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: '.story-container',
+      trigger: '.proj-scroll-container',
       pin: true,
-      scrub: 1,               // 1-second lerp — smooth, not twitchy
+      scrub: 1,
       end: () => '+=' + scrollDistance,
       invalidateOnRefresh: true,
+      snap: {
+        snapTo: N > 1 ? 1 / (N - 1) : 1,
+        duration: { min: 0.3, max: 0.6 },
+        delay: 0.1,
+        ease: 'power2.inOut',
+      },
+      onUpdate: self => {
+        const idx = Math.round(self.progress * (N - 1));
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      },
     },
   });
 
-  // Hero fades out as user starts scrolling
-  gsap.to('.hero-section', {
-    scrollTrigger: {
-      trigger: '.hero-section',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 0.6,
-    },
-    opacity: 0,
-    scale: 0.97,
-    y: -30,
-  });
-
-  projectsData.forEach((project, idx) => {
-    // 1. Pan horizontally to this project (no ease — scrub provides smoothing)
-    if (idx > 0) {
-      tl.to(wrapper, {
-        // wrapper is N×100vw wide; moving by (100/N)% of wrapper = 100vw = one slide
-        xPercent: -(100 / N) * idx,
-        ease: 'none',
-      });
-    }
-
-    // 2. Photo transitions within this project's slide
-    const photos = [...document.querySelectorAll(`#project-${idx} .photo`)];
-    photos.forEach((photo, pIdx) => {
-      if (pIdx === 0) {
-        tl.set(photo, { yPercent: 0, autoAlpha: 1 });
-      } else {
-        // New photo slides up from slightly below
-        tl.fromTo(
-          photo,
-          { yPercent: 20, autoAlpha: 0 },
-          { yPercent: 0,  autoAlpha: 1, ease: 'none' }
-        );
-        // Previous photo fades out simultaneously
-        tl.to(photos[pIdx - 1], { autoAlpha: 0, ease: 'none' }, '<');
-      }
-    });
-
-    // 3. Subtle content nudge during photo change (signals transition to the reader)
-    const content = document.querySelector(`#project-${idx} .project-content`);
-    if (content && photos.length > 1) {
-      tl.fromTo(content, { y: 0 }, { y: -6, ease: 'none', yoyo: true, repeat: 1 }, '<+0.2');
-    }
+  projectsData.forEach((_, idx) => {
+    if (idx > 0) tl.to(wrapper, { xPercent: -(100 / N) * idx, ease: 'none' });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Update slide text in-place when language changes
+// Hero fades out as the user starts scrolling
+// ─────────────────────────────────────────────────────────────────
+function initHeroFadeOut() {
+  gsap.to('.hero-section', {
+    scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: 0.6 },
+    opacity: 0, scale: 0.97, y: -30,
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Update scroll-section text in-place on language switch
 // ─────────────────────────────────────────────────────────────────
 function updateProjectSlidesLang(lang) {
-  projectsData.forEach((project, idx) => {
-    const slide = document.getElementById(`project-${idx}`);
+  projectsData.forEach(project => {
+    const slide = document.querySelector(`.proj-scroll-slide[data-project-id="${project.id}"]`);
     if (!slide) return;
-
-    const titleEl = slide.querySelector('.project-title');
+    const titleEl = slide.querySelector('.proj-scroll-title');
+    const catEl   = slide.querySelector('.proj-cat');
+    const descEl  = slide.querySelector('.proj-desc');
     if (titleEl) titleEl.textContent = project.title[lang] || project.title.en;
-
-    const descEl = slide.querySelector('.project-desc');
-    if (descEl) descEl.textContent = project.description[lang] || project.description.en;
-
-    const catEl = slide.querySelector('.project-category');
-    if (catEl) {
-      catEl.textContent = project.category === 'interior'
-        ? (lang === 'el' ? 'Εσωτερικός Χώρος' : 'Interior Design')
-        : (lang === 'el' ? 'Εξωτερικός Χώρος' : 'Exterior Design');
-    }
+    if (catEl)   catEl.textContent   = project.category === 'interior'
+      ? (lang === 'el' ? 'Εσωτερικός Χώρος' : 'Interior Design')
+      : (lang === 'el' ? 'Εξωτερικός Χώρος' : 'Exterior Design');
+    if (descEl)  descEl.textContent  = (project.description[lang] || project.description.en).split('.')[0] + '.';
   });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Before / After drag slider
+// ─────────────────────────────────────────────────────────────────
+function initBeforeAfterSlider() {
+  const slider = document.getElementById('compare-slider');
+  if (!slider) return;
+
+  const beforeEl = slider.querySelector('.compare-before');
+  const handle   = document.getElementById('compare-handle');
+  let dragging   = false;
+
+  function setPos(clientX) {
+    const { left, width } = slider.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(100, ((clientX - left) / width) * 100));
+    beforeEl.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = `${pct}%`;
+  }
+
+  // Start at 50 %
+  setPos(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width / 2);
+
+  slider.addEventListener('mousedown',  (e) => { dragging = true; setPos(e.clientX); });
+  window.addEventListener('mousemove',  (e) => { if (dragging) setPos(e.clientX); });
+  window.addEventListener('mouseup',    ()  => { dragging = false; });
+
+  slider.addEventListener('touchstart', (e) => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+  slider.addEventListener('touchmove',  (e) => { if (dragging) { e.preventDefault(); setPos(e.touches[0].clientX); } }, { passive: false });
+  slider.addEventListener('touchend',   ()  => { dragging = false; });
 }

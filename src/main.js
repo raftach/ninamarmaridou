@@ -12,32 +12,39 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
   document.getElementById('lang-el').addEventListener('click', () => setLanguage('el'));
 
-  // ── Mobile hamburger menu ──────────────────────────────────────────────────
-  const mobileBtn = document.getElementById('mobile-menu-btn');
-  const mobileNav = document.getElementById('mobile-nav');
+  // ── Full-screen hamburger menu ─────────────────────────────────────────────
+  const menuBtn   = document.getElementById('mobile-menu-btn');
+  const fMenu     = document.getElementById('fullscreen-menu');
+  const fClose    = document.getElementById('fmenu-close');
 
-  function openMobileMenu() {
-    mobileBtn.classList.add('active');
-    mobileNav.classList.add('open');
-    mobileBtn.setAttribute('aria-expanded', 'true');
-    mobileBtn.setAttribute('aria-label', 'Κλείσιμο μενού');
-    mobileNav.setAttribute('aria-hidden', 'false');
+  function openMenu() {
+    fMenu.classList.add('is-open');
+    fMenu.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.classList.add('active');
+    document.body.classList.add('menu-open');
   }
 
-  function closeMobileMenu() {
-    mobileBtn.classList.remove('active');
-    mobileNav.classList.remove('open');
-    mobileBtn.setAttribute('aria-expanded', 'false');
-    mobileBtn.setAttribute('aria-label', 'Άνοιγμα μενού');
-    mobileNav.setAttribute('aria-hidden', 'true');
+  function closeMenu() {
+    fMenu.classList.add('is-closing');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    setTimeout(() => {
+      fMenu.classList.remove('is-open', 'is-closing');
+      fMenu.setAttribute('aria-hidden', 'true');
+    }, 750);
   }
 
-  mobileBtn.addEventListener('click', () => {
-    mobileBtn.classList.contains('active') ? closeMobileMenu() : openMobileMenu();
-  });
+  menuBtn.addEventListener('click', () => fMenu.classList.contains('is-open') ? closeMenu() : openMenu());
+  fClose.addEventListener('click', closeMenu);
 
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+  // Close on Escape key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  // Close when a nav link inside the menu is clicked
+  fMenu.querySelectorAll('.fmenu-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 
   // ── Cookie consent ─────────────────────────────────────────────────────────
