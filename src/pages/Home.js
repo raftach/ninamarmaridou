@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '../data.js';
-import { getLanguage, onLangChange } from '../i18n.js';
+import { getLanguage, onLangChange, dict } from '../i18n.js';
 import { heroEntrance, revealOnScroll } from '../utils/animations.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -105,14 +105,11 @@ export async function renderHome(app) {
       <section class="philosophy-section">
         <div class="philosophy-inner">
           <div class="philosophy-left">
-            <span class="philosophy-eyebrow" data-i18n="philosophy_eyebrow">Design Philosophy</span>
-            <h2 class="philosophy-heading" data-i18n="home_philosophy_title">Crafting Spaces That Tell Your Story</h2>
+            <h2 class="philosophy-heading" data-i18n="home_philosophy_title">${dict.home_philosophy_title[lang]}</h2>
           </div>
           <div class="philosophy-right">
-            <p class="philosophy-body" data-i18n="home_philosophy_text">
-              Nina Marmaridou's philosophy is rooted in the harmonious coexistence of function and aesthetics — where every line, material, and light source serves both purpose and beauty. Each project begins with listening: understanding how a space will be lived in, felt, and remembered.
-            </p>
-            <a href="/work" data-link class="philosophy-cta" data-i18n="explore_projects">Explore Projects</a>
+            <p class="philosophy-body" data-i18n="home_philosophy_text">${dict.home_philosophy_text[lang]}</p>
+            <a href="/work" data-link class="philosophy-cta" data-i18n="explore_projects">${dict.explore_projects[lang]}</a>
           </div>
         </div>
       </section>
@@ -149,9 +146,9 @@ export async function renderHome(app) {
       <!-- ── Partners ── -->
       <section class="partners-section">
         <div class="partners-inner">
-          <p class="partners-eyebrow" data-i18n="partners_eyebrow">Trusted Partners</p>
-          <h2 class="partners-title" data-i18n="partners_title">Our Partners</h2>
-          <p class="partners-subtitle" data-i18n="partners_text">Collaborating with leading brands to deliver exceptional spaces.</p>
+          <p class="partners-eyebrow" data-i18n="partners_eyebrow">${dict.partners_eyebrow[lang]}</p>
+          <h2 class="partners-title" data-i18n="partners_title">${dict.partners_title[lang]}</h2>
+          <p class="partners-subtitle" data-i18n="partners_text">${dict.partners_text[lang]}</p>
           <div class="partners-logos">
             <img src="${import.meta.env.BASE_URL}partners/cma-logo.svg"   alt="CMA"        class="partner-logo" />
             <img src="${import.meta.env.BASE_URL}partners/epsilon.svg"    alt="Epsilon"    class="partner-logo" />

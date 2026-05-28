@@ -210,6 +210,373 @@ export const projectsData = [
 
 export const articlesData = [
   {
+    id: 'faux-limewash',
+    title: {
+      en: 'Faux Limewash: The Technique That Makes Your Space Look 10× More Expensive',
+      el: 'Faux Limewash: Η τεχνική που κάνει τον χώρο σας να φαίνεται 10 φορές πιο ακριβός'
+    },
+    date: '2026-03-29',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/kifisia/kifisia1.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Faux Limewash is a painting technique that radically transforms the feel of a room — lending a patina of time and an atmospheric luxury found only in high-end hotels and historic European buildings. The search for authenticity in interior design is leading the world\'s top designers back to their roots. According to Architectural Digest, walls with texture and movement are the dominant trend as design moves away from flat, cold surfaces. Unlike traditional plaster, Faux Limewash is a specialised colour application technique: with simple brushstrokes, natural gradations evoke aged plaster, giving the wall depth, character, and a distinctive sense of quiet luxury.',
+          img: BASE + 'projects/karpenisi/karpenisi1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'International publications such as Elle Decor emphasise that textures imitating natural materials offer an organic character that plain paint simply cannot match — a cost-effective solution that instantly upgrades a property\'s perceived value. The technique delivers a matte finish that absorbs light and creates a restful atmosphere, a natural handmade texture, and chromatic variations that make the surface feel alive. Nina\'s curated palette for guaranteed results: RAL 9010 Pure White for brightness and clarity; RAL 1001 Beige for timeless elegance; RAL 6021 Pale Green for natural calm; RAL 8004 Copper Brown Terracotta for warmth and earthiness; RAL 5024 Pastel Blue for aristocratic depth. This technique is not simply a paint — it is an aesthetic statement that can radically transform your space with the right inspiration.',
+          img: BASE + 'projects/kifisia/kifisia3.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Το Faux Limewash είναι μια τεχνική βαφής που μεταμορφώνει ριζικά την αίσθηση ενός δωματίου, προσδίδοντας μια πατίνα χρόνου και μια ατμοσφαιρική πολυτέλεια που συναντάμε μόνο σε high-end ξενοδοχεία και ιστορικά κτίρια της Ευρώπης. Η αναζήτηση της αυθεντικότητας στον εσωτερικό σχεδιασμό οδηγεί τους κορυφαίους designers παγκοσμίως πίσω στις ρίζες. Σύμφωνα με το Architectural Digest, οι τοίχοι με υφή και «κίνηση» είναι η κυρίαρχη τάση, καθώς το design απομακρύνεται πλέον από τις επίπεδες και ψυχρές επιφάνειες. Δεν πρόκειται για σοβά, αλλά για μια εξειδικευμένη τεχνική εφαρμογής χρώματος: με απλές κινήσεις πινέλου, δημιουργούνται φυσικές διαβαθμίσεις που θυμίζουν παλαιωμένο σοβά, δίνοντας στον τοίχο βάθος, χαρακτήρα και μια ιδιαίτερη αίσθηση «ήσυχης πολυτέλειας».',
+          img: BASE + 'projects/karpenisi/karpenisi1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Διεθνή έντυπα, όπως το Elle Decor, τονίζουν ότι οι υφές που μιμούνται φυσικά υλικά προσφέρουν έναν οργανικό χαρακτήρα που το απλό χρώμα δεν μπορεί να φτάσει — μια οικονομική λύση που αναβαθμίζει την αξία του ακινήτου ακαριαία. Η τεχνική προσφέρει ματ αποτέλεσμα που απορροφά το φως και δημιουργεί ξεκούραστη ατμόσφαιρα, φυσική χειροποίητη υφή και χρωματικές διακυμάνσεις που κάνουν την επιφάνεια να δείχνει ζωντανή. Η παλέτα της Νίνας Μαρμαρίδου για εγγυημένο αποτέλεσμα: RAL 9010 Pure White για φωτεινότητα και καθαρότητα· RAL 1001 Beige, η επιτομή της διαχρονικής κομψότητας· RAL 6021 Pale Green για αίσθηση φυσικής γαλήνης· RAL 8004 Copper Brown Terracotta για ζεστασιά και γήινη ενέργεια· RAL 5024 Pastel Blue για αριστοκρατικό και ατμοσφαιρικό βάθος. Η τεχνική αυτή δεν είναι απλά μια βαφή — είναι μια δήλωση αισθητικής.',
+          img: BASE + 'projects/kifisia/kifisia3.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: 'hidden-mechanisms',
+    title: {
+      en: 'The Mechanisms That Make Clutter Disappear',
+      el: 'Οι Μηχανισμοί που «Εξαφανίζουν» την Ακαταστασία'
+    },
+    date: '2026-02-28',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/skgcenter/skgcenter1.png',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Smart storage mechanisms are the greatest innovation in utility space design — they allow functional elements to be hidden away when not in use, transforming cluttered areas into clean, serene spaces. Pocket Doors are the most elegant solution for laundry areas or small kitchens located in shared spaces: the doors open and slide into special recesses on the sides of the cabinet, leaving the space fully accessible while in use and closing hermetically when done, making appliances and objects disappear entirely from the field of view. In homes with limited square footage, foldable counters and shelves — ironing boards or work surfaces that fold and conceal inside a shallow drawer — are simply a lifesaver.',
+          img: BASE + 'projects/kifisia/kifisia7.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Pull-out systems — wagons and sliding shelves in pantries — allow full access even to the furthest corner of a cabinet without the need to move ten items to find one, maintaining order effortlessly. These mechanisms are no longer out of reach: solutions exist for every budget and can be retrofitted into existing cabinetry, immediately upgrading the usability of your home. Investing in a good mechanism is an investment in your daily peace of mind — it allows you to truly close the door on household chores and step into a clean, uncluttered space.',
+          img: BASE + 'projects/skgcenter/skgcenter3.png'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Η μεγαλύτερη καινοτομία στον σχεδιασμό των βοηθητικών χώρων είναι οι μηχανισμοί που επιτρέπουν την απόκρυψη των λειτουργικών σημείων όταν δεν χρησιμοποιούνται. Οι Pocket Doors (Συρόμενες Πόρτες που «Χάνονται») αποτελούν την πιο έξυπνη λύση για πλυσταριά ή μικρές κουζίνες σε κοινόχρηστους χώρους: ανοίγουν και γλιστρούν μέσα σε ειδικές εσοχές στα πλαϊνά του επίπλου, αφήνοντας τον χώρο πλήρως προσβάσιμο όσο εργάζεστε και κλείνοντας ερμητικά μετά, εξαφανίζοντας συσκευές και αντικείμενα από το οπτικό πεδίο. Σε σπίτια με περιορισμένα τετραγωνικά, οι πτυσσόμενοι πάγκοι και τα ράφια — πάγκος σιδερώματος ή εργασίας που αναδιπλώνεται και κρύβεται μέσα σε ένα ρηχό συρτάρι — είναι σωτήριοι.',
+          img: BASE + 'projects/kifisia/kifisia7.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Τα Pull-out Systems — τα βαγόνια και τα συρόμενα ράφια στις τροφοθήκες — επιτρέπουν την πλήρη πρόσβαση ακόμα και στο πιο απομακρυσμένο σημείο του ντουλαπιού, χωρίς να χρειάζεται να μετακινείτε δέκα αντικείμενα για να βρείτε ένα, διατηρώντας την τάξη χωρίς κόπο. Αυτοί οι μηχανισμοί δεν είναι πλέον απρόσιτοι: υπάρχουν λύσεις για κάθε προϋπολογισμό που μπορούν να τοποθετηθούν ακόμα και σε υφιστάμενα ντουλάπια, αναβαθμίζοντας άμεσα τη χρηστικότητα του σπιτιού σας. Η επένδυση σε έναν καλό μηχανισμό είναι επένδυση στην καθημερινή σας ηρεμία — σας επιτρέπει να «κλείνετε την πόρτα» στις δουλειές του σπιτιού και να απολαμβάνετε έναν καθαρό χώρο.',
+          img: BASE + 'projects/skgcenter/skgcenter3.png'
+        }
+      ]
+    }
+  },
+  {
+    id: 'kitchen-2026',
+    title: {
+      en: 'The Kitchen as Investment: Technology, Ergonomics & Colour for 2026',
+      el: 'Η Κουζίνα ως Επένδυση: Τεχνολογία, Εργονομία & Χρώμα για το 2026'
+    },
+    date: '2026-01-30',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/kifisia/kifisia1.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Invisible Technology and Ergonomics — Quiet Luxury: technology is integrated discreetly without disrupting the design. Smart Mechanisms — motion-activated drawers and concealed appliance garages ensure absolute order, keeping the kitchen clean and uncluttered at all times. Island Hubs take this further: kitchen islands now accommodate everything from integrated extractor hobs to hidden charging stations, completely transforming the ergonomics of the space and making the kitchen the undisputed heart of the home.',
+          img: BASE + 'projects/kifisia/kifisia5.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Colour Trends — From Minimal to Earthy: the trends of 2026 move away from cool white. Warm, earthy tones — clay, stone, and warm off-white — are preferred, creating moments of calm and relaxation throughout the day. Whether it is a penthouse in the city centre, a villa in Kifisia, or a seaside property on the Riviera, the kitchen is the room that sells a home. A kitchen that integrates smart technology and high-end materials can increase a property\'s commercial value by 10–15% — making it the highest-return investment in the premium Attica market.',
+          img: BASE + 'projects/kifisia/kifisia3.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Αόρατη Τεχνολογία & Εργονομία — Quiet Luxury: η τεχνολογία ενσωματώνεται διακριτικά χωρίς να διαταράσσει το design. Έξυπνοι Μηχανισμοί: συρτάρια motion-activated και κρυφοί αποθηκευτικοί χώροι (appliance garages) εξασφαλίζουν την απόλυτη τάξη. Νησίδες-Hubs: οι νησίδες φιλοξενούν πλέον τα πάντα — από εστίες με ενσωματωμένο απορροφητήρα μέχρι κρυφούς σταθμούς φόρτισης — αλλάζοντας πλήρως την εργονομία και καθιστώντας την κουζίνα την αδιαμφισβήτητη καρδιά του σπιτιού.',
+          img: BASE + 'projects/kifisia/kifisia5.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Χρωματικές Τάσεις — Από το Minimal στο Earthy: οι τάσεις του 2026 απομακρύνονται από το ψυχρό λευκό. Προτιμώνται γήινα, ζεστά χρώματα όπως οι τόνοι του πηλού (clay), της πέτρας και το θερμό off-white, που δημιουργούν στιγμές χαλάρωσης. Είτε πρόκειται για ένα ρετιρέ στο Κέντρο, μια έπαυλη στην Κηφισιά ή ένα παραθαλάσσιο ακίνητο στη Ριβιέρα, η κουζίνα είναι το δωμάτιο που «πουλάει» το σπίτι. Μια κουζίνα που ενσωματώνει smart technology και high-end υλικά μπορεί να αυξήσει την εμπορική αξία ενός ακινήτου κατά 10–15% — είναι η επένδυση με τη μεγαλύτερη απόδοση (ROI) στην premium αγορά της Αττικής.',
+          img: BASE + 'projects/kifisia/kifisia3.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: 'commercial-space-strategy',
+    title: {
+      en: 'When the Space Works for the Business',
+      el: 'Όταν ο Χώρος Δουλεύει για την Επιχείρηση'
+    },
+    date: '2025-12-30',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/tsimiski/tsimiski1.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'The commercial space is not simply the backdrop of an activity — it is a core pillar of commercial strategy, reflected directly in cash flow. In an era where businesses must stand out in an increasingly competitive environment, the space ceases to be a functional shell and becomes a medium of communication, a carrier of identity, and a defining factor in the customer experience. Aesthetics, ergonomics, and spatial coherence directly affect how a business is perceived, how long a visitor stays, and ultimately its commercial performance. The role of the interior designer thus acquires strategic importance: connecting aesthetics with functionality and business sustainability so that a well-designed space supports the brand, builds trust, and creates conditions for growth.',
+          img: BASE + 'projects/tsimiski/tsimiski5.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'A comprehensive study combining architectural thinking, functional design, and aesthetic consistency can turn any space into a genuine competitive advantage — whether it is a hair salon, a shop, a restaurant, or a hotel. Every space needs its own identity. The key elements are the correct organisation of functions, the flow of movement, lighting that highlights the space, and the selection of materials that activate emotion. When a visitor feels comfortable and at home, they stay longer, trust more, and ultimately choose more consciously. The interior designer acts as a strategic partner: we transform the space into a meaningful tool for growth, because aesthetics with measurable value makes all the difference.',
+          img: BASE + 'projects/tsimiski/tsimiski7.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Ο επαγγελματικός χώρος δεν είναι απλώς το σκηνικό μίας δραστηριότητας — είναι βασικός πυλώνας της εμπορικής στρατηγικής που αποτυπώνεται στις ταμειακές ροές. Σε μια εποχή που οι επιχειρήσεις καλούνται να ξεχωρίσουν σε ένα ιδιαίτερα απαιτητικό και ανταγωνιστικό περιβάλλον, ο χώρος παύει να είναι λειτουργικό κέλυφος και μετατρέπεται σε μέσο επικοινωνίας, σε φορέα ταυτότητας και σε καθοριστικό παράγοντα εμπειρίας για τον πελάτη. Η αισθητική, η εργονομία και η συνοχή του χώρου επηρεάζουν άμεσα την αντίληψη της επιχείρησης, τη διάρκεια παραμονής του επισκέπτη και τελικά την ίδια την εμπορική της απόδοση. Ο ρόλος του interior designer αποκτά έτσι στρατηγική σημασία: συνδέει την αισθητική με τη λειτουργικότητα και τη βιωσιμότητα της επιχείρησης, ώστε ο σωστά μελετημένος χώρος να υποστηρίζει το brand, να ενισχύει την εμπιστοσύνη και να δημιουργεί συνθήκες ανάπτυξης.',
+          img: BASE + 'projects/tsimiski/tsimiski5.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Μία ολοκληρωμένη μελέτη που συνδυάζει αρχιτεκτονική σκέψη, λειτουργικό σχεδιασμό και αισθητική συνέπεια μπορεί να κάνει τον χώρο ένα πραγματικό ανταγωνιστικό πλεονέκτημα — είτε μιλάμε για κομμωτήριο, κατάστημα, εστιατόριο ή ξενοδοχείο. Κάθε χώρος χρειάζεται τη δική του ταυτότητα. Τα βασικά στοιχεία είναι η σωστή οργάνωση των λειτουργιών, η ροή της κίνησης, ο φωτισμός που αναδεικνύει τον χώρο και η επιλογή υλικών που ενεργοποιούν το συναίσθημα. Όταν ο επισκέπτης νιώθει άνεση και οικειότητα, μένει περισσότερο, εμπιστεύεται και τελικά επιλέγει πιο συνειδητά. Ο interior designer λειτουργεί ως στρατηγικός συνεργάτης: μετατρέπουμε τον χώρο σε ένα ουσιαστικό μέσο ανάπτυξης, επειδή η αισθητική με μετρήσιμη αξία κάνει τη διαφορά!',
+          img: BASE + 'projects/tsimiski/tsimiski7.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: 'silhouette-af655',
+    title: {
+      en: 'SILHOUETTE AF 655: The Colour of 2026',
+      el: 'SILHOUETTE AF 655: Το Χρώμα του 2026'
+    },
+    date: '2025-11-30',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/tsimiski/tsimiski1.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Silhouette AF 655 is the colour of 2026 — a deep, neutral shade with espresso grey tones that offers depth, sophistication, and warmth without weighing down a space. The year brings a clear shift toward meaningful luxury, perfectly embodied in this shade already appearing in the editorials of major paint houses worldwide, signalling that the new season moves towards more sophisticated, atmospheric palettes. It works as a backdrop of elegance: mysterious, character-defining, and inherently expensive-looking. International interior designers apply it on accent walls for contrast, across entire zones of a room for a more dramatic effect, and even on exterior facades where it creates that sense of quiet luxury now seen in new projects across the United States, Canada, and the United Kingdom — equally successful on kitchen cabinets, wooden doors, built-in wardrobes, and commercial spaces where identity must exude authority and coherence.',
+          img: BASE + 'projects/karpenisi/karpenisi1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Silhouette AF 655 pairs beautifully with timeless cream tones such as Swiss Coffee OC-45 and Natural Cream OC-14, which soften and illuminate it, as well as with metals — brass, gold, and black — for a more dramatic statement, harmonising naturally with raw wood, marble, leather, and velvet. A professional secret: warm-white bulbs bring out a chocolatey intensity and a sense of relaxed warmth, while cooler lighting returns it to its clean espresso grey character. This dual personality makes it ideal for both residences and commercial spaces that want to shift atmosphere with the hour and the use. In 2026 it is clear that luxury needs no loudness — it needs depth, texture, materials that work in concert, and colours with substance. Silhouette AF 655 is exactly that: one of the safest and most refined choices for a home or workplace that both looks exceptional and endures.',
+          img: BASE + 'projects/tsimiski/tsimiski3.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Το Silhouette AF 655 είναι το χρώμα του 2026 — μια βαθιά ουδέτερη απόχρωση με espresso γκρι τόνους που προσφέρει βάθος, κομψότητα και θερμή πολυτέλεια χωρίς να βαραίνει τον χώρο. Το 2026 φέρνει μια σαφή μετατόπιση προς την ουσιαστική πολυτέλεια και αυτή η τάση αποτυπώνεται ιδανικά στο χρώμα αυτό, που αναδεικνύεται παγκοσμίως ως το color of the year, εμφανιζόμενο ήδη σε editorial μεγάλων οίκων βαφής που δείχνουν πως η νέα χρονιά κινείται σε πιο σοφιστικέ, ατμοσφαιρικές παλέτες. Λειτουργεί ως σκηνικό κομψότητας: έχει μυστήριο, δίνει χαρακτήρα, δείχνει ακριβό. Οι διεθνείς interior designers το τοποθετούν σε μεμονωμένους τοίχους για αντίθεση, σε ολοκληρωμένες ζώνες ενός δωματίου για πιο δραματικό αποτέλεσμα, ακόμη και σε εξωτερικές προσόψεις όπου δημιουργεί αίσθηση ήσυχης πολυτέλειας — εξίσου επιτυχημένο σε ντουλάπια κουζίνας, ξύλινες πόρτες, εντοιχισμένες ντουλάπες και επαγγελματικούς χώρους όπου η ταυτότητα πρέπει να αποπνέει κύρος και συνέπεια.',
+          img: BASE + 'projects/karpenisi/karpenisi1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Το Silhouette AF 655 συνδυάζεται άψογα με διαχρονικές κρεμ αποχρώσεις όπως Swiss Coffee OC-45 και Natural Cream OC-14 που το μαλακώνουν και το φωτίζουν, ενώ λειτουργεί εξαιρετικά και με μέταλλα όπως ορείχαλκος, χρυσό και μαύρο για πιο dramatic τόνο, δένοντας αρμονικά με φυσικά υλικά όπως ακατέργαστο ξύλο, μάρμαρο, δέρμα και βελούδο. Ένα μυστικό των επαγγελματιών: με warm λευκές λάμπες αποκτά σοκολατί ένταση και αίσθηση ζεστής χαλάρωσης, ενώ με πιο ψυχρό φωτισμό επιστρέφει στον καθαρό espresso γκρι χαρακτήρα του — μια διπλή προσωπικότητα ιδανική για χώρους που θέλουν να προσαρμόζουν την ατμόσφαιρά τους με την ώρα και τη χρήση. Το 2026 δείχνει ξεκάθαρα ότι η πολυτέλεια δεν χρειάζεται φωνές. Θέλει βάθος, υφή, υλικά που συνεργάζονται μεταξύ τους και χρώματα που έχουν υπόσταση. Το Silhouette AF 655 είναι ακριβώς αυτό — μία από τις πιο ασφαλείς και καλαίσθητες επιλογές για μια κατοικία ή χώρο εργασίας που φαίνεται και έχει διάρκεια.',
+          img: BASE + 'projects/tsimiski/tsimiski3.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: '3d-wall-tiles',
+    title: {
+      en: '3D Wall Tiles: The Three-Dimensional Investment That Upgrades Property Value',
+      el: '3D Πλακίδια Τοίχου: Η Τρισδιάστατη Επένδυση που Αναβαθμίζει την Αξία του Ακινήτου'
+    },
+    date: '2025-10-30',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/kifisia/kifisia1.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: '3D wall tiles introduce depth, light, and texture to a wall surface — their relief forms create a play of shadows that adds dynamism and energy to a space while exuding elegance and architectural coherence. In the modern real estate market, aesthetics and quality are no longer luxuries but decisive investment criteria: first impression, the sense of luxury, and the overall spatial experience directly shape a property\'s perceived value. Among the elements that can transform a space and give it a premium character, 3D wall tiles stand out as a design trend with a timeless result that combines high aesthetics with genuine investment interest. From wavy surfaces and geometric patterns to natural material imitations, they provide the visual identity and architectural presence indispensable to any contemporary property that wants to stand apart.',
+          img: BASE + 'projects/karpenisi/karpenisi4.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: '3D tiles can be installed almost anywhere — living rooms, entrances, hallways, kitchens, bathrooms, or even exterior spaces depending on the material. In reception areas or professional environments they function as a statement wall, the central focal point of the design, and with hidden LED lighting their three-dimensional texture is elevated further, completely transforming the atmosphere. Next-generation materials — ceramic, porcelain, or synthetic panels with relief textures — offer durability, ease of cleaning, and aesthetic consistency with the rest of the space. A property that stands out for its design does not sell only square metres, but an experience: upgrading a wall with 3D tiles can transform the feel of a home or commercial space, increasing its market value. 3D wall tiles are the next step in high-value interior design — a choice that combines architectural imagination, technological innovation, and a clear return on investment.',
+          img: BASE + 'projects/skgcenter/skgcenter1.png'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Τα 3D πλακίδια εισάγουν στην επιφάνεια του τοίχου βάθος, φως και υφή — οι ανάγλυφες μορφές τους δημιουργούν ένα παιχνίδι σκιών που προσθέτει δυναμική και ζωντάνια στον χώρο, ενώ παράλληλα αποπνέουν κομψότητα και αρχιτεκτονική συνέπεια. Στη σύγχρονη αγορά του real estate, η αισθητική και η ποιότητα ενός ακινήτου δεν αποτελούν πλέον πολυτέλεια, αλλά καθοριστικό επενδυτικό κριτήριο: η πρώτη εντύπωση, η αίσθηση πολυτέλειας και η συνολική εμπειρία του χώρου διαμορφώνουν την αντίληψη του ενδιαφερόμενου αγοραστή ή ενοικιαστή, επηρεάζοντας άμεσα την αξία του ίδιου του ακινήτου. Ανάμεσα στα στοιχεία που μπορούν να μεταμορφώσουν έναν χώρο και να του προσδώσουν premium χαρακτήρα, ξεχωρίζουν τα 3D πλακίδια τοίχου — μια σχεδιαστική τάση με διαχρονικό αποτέλεσμα, που συνδυάζει υψηλή αισθητική και ουσιαστικό επενδυτικό ενδιαφέρον. Από κυματιστές επιφάνειες και γεωμετρικά μοτίβα έως φυσικές απομιμήσεις, προσδίδουν αισθητικό ενδιαφέρον και ισχυρή οπτική ταυτότητα.',
+          img: BASE + 'projects/karpenisi/karpenisi4.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Τα 3D πλακίδια μπορούν να τοποθετηθούν σχεδόν παντού: σε σαλόνια, εισόδους, χολ, κουζίνες, μπάνια ή ακόμα και σε εξωτερικούς χώρους, ανάλογα με το υλικό. Σε χώρους υποδοχής ή επαγγελματικά περιβάλλοντα λειτουργούν ως statement wall, το κεντρικό σημείο εστίασης του σχεδιασμού — με την προσθήκη κρυφού φωτισμού LED, η τρισδιάστατη υφή τους αναδεικνύεται ακόμη περισσότερο, απογειώνοντας την ατμόσφαιρα. Κεραμικά, πορσελάνινα ή συνθετικά panels με ανάγλυφες υφές προσφέρουν αντοχή, ευκολία καθαρισμού και αισθητική συνέπεια με το υπόλοιπο design του χώρου. Ένα ακίνητο που ξεχωρίζει για το design του δεν «πουλάει» μόνο τετραγωνικά, αλλά εμπειρία: η αναβάθμιση ενός τοίχου με 3D πλακίδια μπορεί να μεταμορφώσει την αίσθηση ενός σπιτιού ή επαγγελματικού χώρου, αυξάνοντας την εμπορική του αξία. Τα 3D πλακίδια τοίχου αποτελούν το επόμενο βήμα στο interior design ακινήτων υψηλής αξίας — μια επιλογή που συνδυάζει αρχιτεκτονική φαντασία, τεχνολογική καινοτομία και σαφή επενδυτική απόδοση.',
+          img: BASE + 'projects/skgcenter/skgcenter1.png'
+        }
+      ]
+    }
+  },
+  {
+    id: 'lighting-design',
+    title: { en: 'Lighting Design', el: 'Σχεδιασμός Φωτισμού' },
+    date: '2025-10-05',
+    publication: { en: 'Epsilon Living — Issue 5', el: 'Epsilon Living — Τεύχος 5' },
+    coverImage: BASE + 'projects/tsimiski/tsimiski1.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Lighting is not just about seeing clearly. It is what gives character, highlights architecture and furnishings, creates emotions, and defines how we experience our space. When a home is still at the brickwork stage, there are two options: a lighting study by specialized professionals, which comes at a higher cost but guarantees precision and flawless results, or a plan prepared by an interior designer, with provisions for all lighting points and the necessary outlets in ceilings and walls — avoiding extension cords, the risk of overload or electric shock, and mistakes that compromise daily living.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Proper lighting is not a privilege reserved only for those building a new home, office, or shop. In already built spaces, meaningful improvements can be made: replacing light fixtures, using track systems, adding dimmers, or even installing new power lines where needed. The choice of light temperature is equally crucial — warm tones at 2700–3000K for a sense of coziness in living rooms, neutral to cool at 4000–5000K for clear vision in kitchens and offices, and 2700K at the nightstands for relaxation. Lighting is not a detail. It is the staging of our space, the atmosphere that accompanies us every day — and whether we are talking about a new home or an old one, it deserves the importance it truly holds.',
+          img: BASE + 'projects/tsimiski/tsimiski5.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Ο φωτισμός δεν αφορά μόνο το να βλέπουμε καθαρά. Είναι αυτό που δίνει χαρακτήρα, αναδεικνύει την αρχιτεκτονική και τα έπιπλα, δημιουργεί συναισθήματα και ορίζει τον τρόπο με τον οποίο βιώνουμε τον χώρο μας. Όταν ένα σπίτι βρίσκεται ακόμα στο στάδιο της δόμησης, υπάρχουν δύο επιλογές: μελέτη φωτισμού από εξειδικευμένους επαγγελματίες, η οποία εγγυάται ακρίβεια και άψογα αποτελέσματα, ή σχέδιο από εσωτερικό διακοσμητή, με πρόβλεψη για όλα τα σημεία φωτισμού και τις απαραίτητες πρίζες σε οροφές και τοίχους — αποφεύγοντας καλώδια στα δάπεδα, τον κίνδυνο υπερφόρτωσης ή ηλεκτροπληξίας και λάθη που συμβιβάζουν την καθημερινότητα.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Ο σωστός φωτισμός δεν είναι προνόμιο αποκλειστικά για όσους χτίζουν νέο σπίτι, γραφείο ή κατάστημα. Σε ήδη κατασκευασμένους χώρους μπορούν να γίνουν ουσιαστικές βελτιώσεις: αντικατάσταση φωτιστικών, χρήση συστημάτων ράγας, προσθήκη dimmer ή ακόμα και εγκατάσταση νέων ηλεκτρικών γραμμών όπου χρειάζεται. Καθοριστική είναι και η θερμοκρασία χρώματος — ζεστές αποχρώσεις 2700–3000K για αίσθηση ζεστασιάς στο σαλόνι, ουδέτερες έως ψυχρές 4000–5000K για καθαρή όραση σε κουζίνες και γραφεία, και 2700K στα κομοδίνα για χαλάρωση. Ο φωτισμός δεν είναι μια λεπτομέρεια. Είναι η σκηνοθεσία του χώρου μας, η ατμόσφαιρα που μας συνοδεύει κάθε μέρα — και αξίζει την προσοχή που πραγματικά του ανήκει.',
+          img: BASE + 'projects/tsimiski/tsimiski5.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: 'renovation-without-plan',
+    title: {
+      en: 'Renovation Without a Plan: Either You Pay Twice, or You Live With the Mistakes',
+      el: 'Ανακαίνιση χωρίς σχέδιο: είτε πληρώνεις δύο φορές, είτε ζεις με τα λάθη'
+    },
+    date: '2025-08-30',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/kifisia/kifisia3.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'A spatial study before a renovation is not a luxury — it is the antidote to chaos. If you start without a plan, you will almost always end up with demolitions, double the work, and double the cost. And the worst part? If you don\'t fix them, you will end up living in a home that burdens rather than serves you. A design study is essential because it ensures the space is utilised correctly from the very start — without one, changes are made hastily and almost always require costly corrections. When taking on a project, the starting point is always understanding the space and carefully listening to the owner\'s needs: examining the layout, the natural light, and how people move within it, then designing the best way to bring their vision to life. Strategic design means that every choice is made with a specific goal, not by chance — in an older property we might keep wooden frames that have value and replace only what is functionally outdated; in a new one, we plan utilities and furniture placement in advance to avoid mistakes that compound over time.',
+          img: BASE + 'projects/skgcenter/skgcenter1.png'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Material and style selection is based on durability, the use of the space, and the architecture — a floor in a high-traffic area must be durable first and beautiful second. The study identifies which material meets the functional need while fitting aesthetically with the overall space. The owner gains two things from a proper study: first, it increases the property\'s market value; second, the space becomes more functional for everyday use. A well-designed home or office makes daily life easier and is more attractive for rental or sale. And yes, there are real savings in time and money — a study reduces mistakes and mid-course changes, which means fewer delays, a lower final cost, and a smoother project from start to finish.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Η μελέτη χώρου πριν από μια ανακαίνιση δεν είναι πολυτέλεια, είναι το αντίδοτο στο χάος. Αν ξεκινήσεις χωρίς σχέδιο, σχεδόν πάντα θα οδηγηθείς σε γκρεμίσματα, διπλή δουλειά και διπλό κόστος. Και το χειρότερο; Αν δεν τα διορθώσεις, θα καταλήξεις να ζεις σε ένα σπίτι που σε ταλαιπωρεί αντί να σε εξυπηρετεί. Η μελέτη σχεδιασμού είναι απαραίτητη γιατί εξασφαλίζει ότι ο χώρος θα αξιοποιηθεί σωστά από την αρχή — χωρίς μελέτη, οι αλλαγές γίνονται πρόχειρα και σχεδόν πάντα χρειάζονται διορθώσεις που κοστίζουν. Η αφετηρία κάθε έργου είναι η κατανόηση του χώρου και η προσεκτική ακρόαση των αναγκών του ιδιοκτήτη: εξετάζω τη διάταξη, το φυσικό φως και τον τρόπο που κινούνται οι άνθρωποι μέσα σε αυτόν, ακούω τα θέλω τους και σχεδιάζω την υλοποίησή τους με τον καλύτερο τρόπο. Στρατηγικός σχεδιασμός σημαίνει ότι οι επιλογές γίνονται με συγκεκριμένο στόχο και όχι στην τύχη — σε παλιό ακίνητο κρατάμε ό,τι έχει αξία και αλλάζουμε μόνο ό,τι είναι λειτουργικά ξεπερασμένο, ενώ σε νέο σχεδιάζουμε από πριν τις παροχές και τα έπιπλα για να αποφευχθούν μελλοντικές αστοχίες.',
+          img: BASE + 'projects/skgcenter/skgcenter1.png'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Η επιλογή υλικών και στυλ γίνεται βάσει αντοχής, χρήσης και αρχιτεκτονικής — ένα δάπεδο σε χώρο με έντονη χρήση πρέπει να είναι ανθεκτικό, δεν αρκεί να είναι καλαίσθητο. Η μελέτη δείχνει ποιο υλικό καλύπτει τις ανάγκες και παράλληλα δένει αισθητικά με τον χώρο. Ο ιδιοκτήτης κερδίζει δύο πράγματα από μια σωστή μελέτη: πρώτον, αυξάνει την αξία του ακινήτου στην αγορά· δεύτερον, ο χώρος γίνεται πιο λειτουργικός για την καθημερινή χρήση. Ένα σπίτι ή γραφείο που είναι καλά σχεδιασμένο διευκολύνει την καθημερινότητα και είναι πιο ελκυστικό για μίσθωση ή πώληση. Και φυσικά υπάρχει εξοικονόμηση σε χρόνο και χρήμα — με τη μελέτη περιορίζονται τα λάθη και οι αλλαγές στην πορεία, που σημαίνει λιγότερες καθυστερήσεις, μικρότερο τελικό κόστος και πιο ομαλή εξέλιξη του έργου.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: 'false-ceilings',
+    title: {
+      en: 'Plasterboard False Ceilings: The Ally of Modern Aesthetics',
+      el: 'Ψευδοροφές από Γυψοσανίδα: Ο Σύμμαχος της Σύγχρονης Αισθητικής'
+    },
+    date: '2025-07-31',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/kifisia/kifisia5.jpg',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Plasterboard false ceilings have established themselves as one of the most popular solutions for shaping both interior and exterior spaces — their flexibility at both an architectural and decorative level makes them an exceptional tool for combining functionality and design. One of their most significant capabilities is the integration of lighting: concealed LED strips or decorative fixtures that highlight specific areas of a space. They also allow for the installation of ventilation, cooling, and heating systems, while concealing beams and technical infrastructure that would otherwise remain visible. Aesthetically, plasterboard offers almost limitless shaping possibilities — organic or geometric forms such as a large oval element above the dining table or a circular canopy with atmospheric lighting. Three-dimensional ceiling structures add depth and character, and can be used intelligently to zone an open-plan space: the living area, for example, can be defined by a false ceiling at a different height from the dining zone.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'False ceilings also offer concealment of wiring and, with specialist materials, enhanced acoustic or thermal insulation — a versatility that makes plasterboard ideal for residential, professional, and hospitality environments alike, always resulting in a harmonious whole that serves the user\'s needs while elevating the aesthetics. Before starting without an interior designer, ask your contractor these key questions: What type of plasterboard suits the space — standard, moisture-resistant, or fire-resistant? Who handles the electrical installation? Can concealed LED lighting be added? What happens to cables, pipes, and ventilation — can they be hidden? Are insulation options available? Does the project require a structural engineer\'s approval? How long will it take and can you stay in the space during works? Is painting included in the quote? What warranty covers future cracks or issues? Extra tip: always keep a file with the final plan and installation photographs — they will be invaluable for any future technical work.',
+          img: BASE + 'projects/tsimiski/tsimiski5.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Οι ψευδοροφές από γυψοσανίδα έχουν καθιερωθεί ως μία από τις πιο δημοφιλείς λύσεις στη διαμόρφωση εσωτερικών αλλά και εξωτερικών χώρων — η ευελιξία τους, τόσο σε αρχιτεκτονικό όσο και σε διακοσμητικό επίπεδο, τις καθιστά εξαιρετικό εργαλείο για κάθε interior designer που επιθυμεί να συνδυάσει λειτουργικότητα και design. Μία από τις σημαντικότερες δυνατότητες που προσφέρουν είναι η ενσωμάτωση φωτισμού — κρυφό φωτισμό LED ή διακοσμητικά φωτιστικά που αναδεικνύουν συγκεκριμένα σημεία του χώρου — ενώ επιτρέπουν και την τοποθέτηση συστημάτων εξαερισμού, ψύξης και θέρμανσης, καλύπτοντας δοκάρια και τεχνικές υποδομές που αλλιώς θα παρέμεναν ορατές. Από την αισθητική πλευρά, η γυψοσανίδα προσφέρει σχεδόν απεριόριστες δυνατότητες: οργανικές ή γεωμετρικές μορφές, όπως ένα μεγάλο οβάλ στοιχείο πάνω από την τραπεζαρία ή κυκλική ανάρτηση με ατμοσφαιρικό φωτισμό, ενώ οι τρισδιάστατες κατασκευές στο ταβάνι δίνουν βάθος και μπορούν να διαχωρίσουν έξυπνα τις λειτουργικές ζώνες ενός ανοιχτού χώρου.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Επιπλέον, οι ψευδοροφές δίνουν τη δυνατότητα απόκρυψης καλωδιώσεων και ενίσχυσης της ηχομόνωσης ή θερμομόνωσης με χρήση ειδικών υλικών — αυτός ο πολυμορφικός χαρακτήρας της γυψοσανίδας την καθιστά ιδανική για χώρους κατοικίας, επαγγελματικά περιβάλλοντα και χώρους φιλοξενίας, με αποτέλεσμα πάντα ένα αρμονικό σύνολο που εξυπηρετεί τις ανάγκες του χρήστη, απογειώνοντας την αισθητική. Αν το κάνετε χωρίς interior designer, κάντε αυτές τις ερωτήσεις στον επαγγελματία: Τι είδους γυψοσανίδα ταιριάζει στον χώρο; Ποιος αναλαμβάνει την ηλεκτρολογική εγκατάσταση; Μπορώ να βάλω κρυφό φωτισμό LED; Τι γίνεται με τα καλώδια, τους σωλήνες και τον εξαερισμό; Υπάρχει δυνατότητα θερμομόνωσης ή ηχομόνωσης; Χρειάζεται έγκριση μηχανικού; Πόση διάρκεια θα έχει το έργο; Περιλαμβάνεται βάψιμο στην προσφορά; Τι εγγύηση δίνεται για τυχόν ρωγμές; Extra tip: κρατήστε πάντα αρχείο με το τελικό σχέδιο και φωτογραφίες κατά την εγκατάσταση — θα σας φανούν πολύτιμα σε μελλοντικές τεχνικές εργασίες!',
+          img: BASE + 'projects/tsimiski/tsimiski5.jpg'
+        }
+      ]
+    }
+  },
+  {
+    id: 'old-properties-new-gains',
+    title: {
+      en: 'Old Properties, New Gains: Renovation as a Tool for Added Value',
+      el: 'Παλιά Ακίνητα, Νέα Κέρδη: Η Ανακαίνιση ως Εργαλείο Υπεραξίας'
+    },
+    date: '2025-07-01',
+    publication: { en: 'Epsilon Living', el: 'Epsilon Living' },
+    coverImage: BASE + 'projects/skgcenter/skgcenter1.png',
+    videoUrl: 'https://www.instagram.com/ninamarmaridou',
+    content: {
+      en: [
+        {
+          type: 'text-img-right',
+          text: 'Buying an old property is not simply an economical choice — it is a strategic decision for those who look ahead. Why is it worth investing in an old property today? A low purchase price means the property is acquired at the lowest point in the market, ideal for investment or owner-occupation. Renovation adapts it to modern needs and increases its practicality from day one. Even spaces that previously seemed lost are activated through design — and entirely new rooms can be added: a laundry room, storage, a walk-in wardrobe, a playroom, a home gym, or a barbecue area. The property becomes more energy-efficient and contemporary, with a smaller footprint. Most importantly, its overall value increases significantly in both valuation and market demand.',
+          img: BASE + 'projects/skgcenter/skgcenter3.png'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Renovation is a tool that adds real, measurable value. Works range from €150 to €500 per square metre — materials not included — with the final cost depending on the extent, complexity, and quality requirements of the owner. The bottom line: buying an old property is an opportunity for capital growth. With the right design approach, it can be transformed from an overlooked asset into a property with significant returns and a fully elevated aesthetic.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        }
+      ],
+      el: [
+        {
+          type: 'text-img-right',
+          text: 'Η αγορά ενός παλιού ακινήτου δεν είναι απλώς μια οικονομική λύση — είναι στρατηγική επιλογή για όσους βλέπουν μπροστά. Γιατί αξίζει να επενδύσει κανείς σε ένα παλιό ακίνητο σήμερα; Χαμηλή τιμή αγοράς: το ακίνητο αποκτάται στη χαμηλότερη τιμή της αγοράς, ιδανικό για επένδυση ή ιδιοκατοίκηση. Λειτουργικότητα από την αρχή: η ανακαίνιση προσαρμόζει το ακίνητο στις σύγχρονες ανάγκες και αυξάνει την πρακτικότητά του. Εκμετάλλευση κάθε τετραγωνικού: ακόμα και χώροι που πριν φαίνονταν «χαμένοι», ενεργοποιούνται με σχεδιασμό. Δημιουργία νέων χώρων: laundry room, αποθηκευτικά, βεστιάριο, playroom, home gym ή barbecue area. Ενεργειακή αναβάθμιση: το ακίνητο γίνεται πιο αποδοτικό και σύγχρονο, με μικρότερο ενεργειακό αποτύπωμα. Άμεση υπεραξία: η συνολική αξία του ακινήτου αυξάνεται σημαντικά, τόσο σε αποτίμηση όσο και σε ζήτηση.',
+          img: BASE + 'projects/skgcenter/skgcenter3.png'
+        },
+        {
+          type: 'img-left-text',
+          text: 'Η ανακαίνιση είναι ένα εργαλείο που προσθέτει πραγματική αξία. Οι εργασίες ξεκινούν από 150€ έως 500€ ανά τετραγωνικό μέτρο — χωρίς να περιλαμβάνονται τα υλικά — με το τελικό κόστος να εξαρτάται από την έκταση, την πολυπλοκότητα και τις ποιοτικές απαιτήσεις του ιδιοκτήτη. Τελικό συμπέρασμα: η αγορά ενός παλιού ακινήτου αποτελεί μια ευκαιρία αύξησης κεφαλαίου. Με τον σωστό σχεδιασμό, μπορεί να μετατραπεί σε ένα περιουσιακό στοιχείο με αξιόλογη απόδοση και αισθητική αναβάθμιση.',
+          img: BASE + 'projects/kifisia/kifisia1.jpg'
+        }
+      ]
+    }
+  },
+  {
     id: 'minimalism-redefined',
     title: { en: 'Minimalism Redefined', el: 'Ο Μινιμαλισμός Αλλιώς' },
     date: '2026-04-15',

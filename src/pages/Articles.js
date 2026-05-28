@@ -26,10 +26,13 @@ function renderArticle(app, articleId, lang) {
     return;
   }
 
-  const blocks = article.content[lang] || article.content.en;
-  const title  = article.title[lang] || article.title.en;
-  const b0     = blocks[0] || {};
-  const b1     = blocks[1] || {};
+  const blocks      = article.content[lang] || article.content.en;
+  const title       = article.title[lang] || article.title.en;
+  const b0          = blocks[0] || {};
+  const b1          = blocks[1] || {};
+  const eyebrowSrc  = article.publication
+    ? (article.publication[lang] || article.publication.en)
+    : (lang === 'el' ? 'Άρθρο' : 'Article');
 
   // Extract first sentence as pull quote, rest as body
   const sentences0  = b0.text ? b0.text.split(/(?<=\.)\s+/) : [];
@@ -49,7 +52,7 @@ function renderArticle(app, articleId, lang) {
         <img src="${b0.img || article.coverImage || ''}" alt="${title}" />
         <div class="mag-hero-overlay"></div>
         <div class="mag-hero-content">
-          <span class="mag-hero-eyebrow">${lang === 'el' ? 'Άρθρο' : 'Article'} &nbsp;·&nbsp; ${article.date}</span>
+          <span class="mag-hero-eyebrow">${eyebrowSrc} &nbsp;·&nbsp; ${article.date}</span>
           <h1 class="mag-hero-title">${title}</h1>
         </div>
       </div>
@@ -96,6 +99,15 @@ function renderArticle(app, articleId, lang) {
         </a>
       </div>
 
+      ${article.publication ? `
+      <!-- ⑦ Partner disclaimer -->
+      <div class="mag-partner-note">
+        <p>${lang === 'el'
+          ? `Διαβάστε αυτό και άλλα ενδιαφέρoντα άρθρα και διαθέσιμα ακίνητα στο online περιοδικό του συνεργάτη μας <a href="https://epsilonliving.gr/" target="_blank" rel="noopener noreferrer" class="mag-partner-link">Epsilon Living</a>.`
+          : `Read this and other interesting articles and available properties on our partner's online magazine <a href="https://epsilonliving.gr/" target="_blank" rel="noopener noreferrer" class="mag-partner-link">Epsilon Living</a>.`
+        }</p>
+      </div>` : ''}
+
     </article>
   `;
 
@@ -104,7 +116,8 @@ function renderArticle(app, articleId, lang) {
     revealOnScroll('.mag-intro',     { y: 50, stagger: 0 });
     revealOnScroll('.mag-full-img',  { y: 30, stagger: 0 });
     revealOnScroll('.mag-spread',    { y: 50, stagger: 0 });
-    revealOnScroll('.mag-cta',       { y: 30, stagger: 0 });
+    revealOnScroll('.mag-cta',        { y: 30, stagger: 0 });
+    revealOnScroll('.mag-partner-note', { y: 20, stagger: 0 });
   });
 }
 

@@ -67,6 +67,50 @@ export async function renderServices(app) {
       images: constructionImgs.length ? constructionImgs : exteriorImgs.slice(0, 8),
       carouselId: 'carousel-construction',
     },
+    {
+      id: 'study',
+      nameKey:  'service_study_name',
+      name:     lang === 'el' ? 'Μελέτη Χώρων' : 'Space Study',
+      descKey:  'service_study_desc',
+      desc:     lang === 'el'
+        ? 'Δημιουργία προσαρμοσμένων λύσεων που ανταποκρίνονται στις ανάγκες και την προσωπικότητα σας.'
+        : 'Creating tailored solutions that respond to your needs and personality.',
+      images: [],
+      carouselId: 'carousel-study',
+    },
+    {
+      id: 'residential',
+      nameKey:  'service_residential_name',
+      name:     lang === 'el' ? 'Διαμόρφωση Κατοικιών & Επαγγελματικών Χώρων' : 'Residential & Commercial Design',
+      descKey:  'service_residential_desc',
+      desc:     lang === 'el'
+        ? 'Μετατροπή των χώρων σε σύγχρονα, λειτουργικά και αισθητικά άρτια περιβάλλοντα.'
+        : 'Transforming spaces into modern, functional, and aesthetically complete environments.',
+      images: [],
+      carouselId: 'carousel-residential',
+    },
+    {
+      id: 'consulting',
+      nameKey:  'service_consulting_name',
+      name:     lang === 'el' ? 'Συμβουλευτική Διακόσμησης' : 'Decor Consulting',
+      descKey:  'service_consulting_desc',
+      desc:     lang === 'el'
+        ? 'Επιλογή υλικών, χρωματικών παλετών και υφών που καθορίζουν την ατμόσφαιρα του χώρου.'
+        : 'Selecting materials, color palettes, and textures that define the atmosphere of the space.',
+      images: [],
+      carouselId: 'carousel-consulting',
+    },
+    {
+      id: 'custom',
+      nameKey:  'service_custom_name',
+      name:     lang === 'el' ? 'Έπιπλα & Εξατομικευμένος Σχεδιασμός' : 'Furniture & Custom Design',
+      descKey:  'service_custom_desc',
+      desc:     lang === 'el'
+        ? 'Μελέτη και σχεδιασμός επίπλων και ειδικών κατασκευών που προσφέρουν λύσεις ακόμα και στις πιο ιδιαίτερους χώρους προσδίδοντας μοναδικό χαρακτήρα.'
+        : 'Designing furniture and custom constructs that offer solutions even in the most unique spaces, adding a unique character.',
+      images: [],
+      carouselId: 'carousel-custom',
+    },
   ];
 
   const sectionsHTML = services.map((svc, idx) => `
@@ -89,10 +133,18 @@ export async function renderServices(app) {
         </div>
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
-          <span class="page-hero-eyebrow" data-i18n="nav_services">${lang === 'el' ? 'Υπηρεσίες' : 'Services'}</span>
-          <h1 class="page-hero-title" data-i18n="services_title">${lang === 'el' ? 'Τι Προσφέρουμε' : 'What We Offer'}</h1>
-          <p class="page-hero-sub" data-i18n="services_intro">${lang === 'el' ? 'Ολοκληρωμένες λύσεις σχεδιασμού για κατοικία και επαγγελματικούς χώρους.' : 'Comprehensive design solutions for residential and commercial spaces.'}</p>
+          <span class="page-hero-eyebrow" data-i18n="nav_services">${dict.nav_services[lang]}</span>
+          <h1 class="page-hero-title" data-i18n="services_title">${dict.services_title[lang]}</h1>
+          <p class="page-hero-sub">${lang === 'el' ? 'Ολοκληρωμένες λύσεις σχεδιασμού για κατοικία και επαγγελματικούς χώρους.' : 'Comprehensive design solutions for residential and commercial spaces.'}</p>
         </div>
+      </section>
+
+      <!-- Intro statement -->
+      <section class="svc-intro">
+        <p class="svc-intro-lead" data-i18n="services_intro">${lang === 'el'
+          ? 'Προσφέρουμε ολοκληρωμένες λύσεις εσωτερικού σχεδιασμού, προσαρμοσμένες στο στυλ και τις ανάγκες κάθε χώρου. Με αισθητική συνέπεια, πρακτική σκέψη και δημιουργική ματιά, αναλαμβάνουμε κάθε στάδιο, από την αρχική ιδέα έως την τελική υλοποίηση.'
+          : 'We offer comprehensive interior design solutions, tailored to the style and needs of each space. With aesthetic consistency, practical thinking, and a creative eye, we undertake every stage, from the initial idea to final implementation.'
+        }</p>
       </section>
 
       <!-- Sticky service nav -->
@@ -108,11 +160,29 @@ export async function renderServices(app) {
       <div class="svc-list">
         ${sectionsHTML}
       </div>
+
+      <!-- Vision closing section -->
+      <section class="svc-vision">
+        <span class="svc-vision-label" data-i18n="services_vision_title">${lang === 'el' ? 'Όραμα' : 'Vision'}</span>
+        <p class="svc-vision-text" data-i18n="services_vision_text">${lang === 'el'
+          ? 'Η αποτύπωση του προσωπικού σας στυλ, μέσα από σχεδιαστικές λύσεις που κάνουν τον χώρο σας ιδανικό για την καθημερινότητα σας.'
+          : 'Reflecting your personal style through design solutions that make your space perfect for your everyday life.'
+        }</p>
+      </section>
+
     </div>
   `;
 
   requestAnimationFrame(() => {
     gsap.from('.page-hero-content', { y: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
+    gsap.from('.svc-intro-lead', {
+      scrollTrigger: { trigger: '.svc-intro', start: 'top 85%' },
+      y: 30, opacity: 0, duration: 0.9, ease: 'power2.out',
+    });
+    gsap.from('.svc-vision-label, .svc-vision-text', {
+      scrollTrigger: { trigger: '.svc-vision', start: 'top 80%' },
+      y: 30, opacity: 0, duration: 0.9, ease: 'power2.out', stagger: 0.15,
+    });
     app.querySelectorAll('.svc-item').forEach((el, i) => {
       gsap.from(el, {
         scrollTrigger: { trigger: el, start: 'top 85%' },
@@ -131,8 +201,9 @@ function initSvcNav(app) {
     btn.addEventListener('click', () => {
       const target = document.getElementById(btn.dataset.target);
       if (!target) return;
-      const navH = app.querySelector('.svc-nav')?.offsetHeight ?? 0;
-      const top  = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+      const navbarH = document.querySelector('.navbar')?.offsetHeight ?? 0;
+      const svcNavH = app.querySelector('.svc-nav')?.offsetHeight ?? 0;
+      const top     = target.getBoundingClientRect().top + window.scrollY - navbarH - svcNavH - 8;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });

@@ -39,6 +39,7 @@ export const dict = {
   work_hero_subtitle: { en: 'A curated portfolio of residential and commercial spaces.', el: 'Μια επιλεγμένη συλλογή κατοικιών και επαγγελματικών χώρων.' },
   projects_title:   { en: 'Featured Works',  el: 'Επιλεγμένα Έργα' },
   partners_title:   { en: 'Partners',        el: 'Συνεργάτες' },
+  partners_eyebrow: { en: 'Trusted Partners', el: 'Αξιόπιστοι Συνεργάτες' },
   partners_text: {
     en: 'Every project is a unique design story, see how we transformed spaces with style, functionality, and aesthetic balance.',
     el: 'Κάθε έργο είναι μια μοναδική ιστορία σχεδιασμού, δείτε πώς μεταμορφώσαμε χώρους με στυλ, λειτουργικότητα και αισθητική ισορροπία.',
@@ -55,7 +56,7 @@ export const dict = {
   services_study:            { en: '<strong>Space Study:</strong> Creating tailored solutions that respond to your needs and personality.',                                                               el: '<strong>Μελέτη Χώρων:</strong> Δημιουργία προσαρμοσμένων λύσεων που ανταποκρίνονται στις ανάγκες και την προσωπικότητα σας.' },
   services_residential:      { en: '<strong>Residential & Commercial Formatting:</strong> Transforming spaces into modern, functional, and aesthetically complete environments.',                      el: '<strong>Διαμόρφωση Κατοικιών & Επαγγελματικών Χώρων:</strong> Μετατροπή των χώρων σε σύγχρονα, λειτουργικά και αισθητικά άρτια περιβάλλοντα.' },
   services_consulting:       { en: '<strong>Decor Consulting:</strong> Selecting materials, color palettes, and textures that define the space\'s atmosphere.',                                      el: '<strong>Συμβουλευτική Διακόσμησης:</strong> Επιλογή υλικών, χρωματικών παλετών και υφών που καθορίζουν την ατμόσφαιρα του χώρου.' },
-  services_custom:           { en: '<strong>Furniture & Custom Design:</strong> Designing furniture and custom constructs that offer solutions even in the most unique spaces.',                     el: '<strong>Έπιπλα & Εξατομικευμένος Σχεδιασμός:</strong> Μελέτη και σχεδιασμός επίπλων και ειδικών κατασκευών που προσφέρουν λύσεις ακόμα και στις πιο ιδιαίτερους χώρους.' },
+  services_custom:           { en: '<strong>Furniture & Custom Design:</strong> Designing furniture and custom constructs that offer solutions even in the most unique spaces, adding a unique character.',  el: '<strong>Έπιπλα & Εξατομικευμένος Σχεδιασμός:</strong> Μελέτη και σχεδιασμός επίπλων και ειδικών κατασκευών που προσφέρουν λύσεις ακόμα και στις πιο ιδιαίτερους χώρους προσδίδοντας μοναδικό χαρακτήρα.' },
   services_construction_text: { en: '<strong>Construction & Overview:</strong> Complete project management from initiation to final delivery.',                                                      el: '<strong>Κατασκευή και Επίβλεψη:</strong> Πλήρης διαχείριση έργου από την έναρξη έως την τελική παράδοση.' },
   interior_design:            { en: 'Interior Design',          el: 'Εσωτερική Διακόσμηση' },
   exterior_design:            { en: 'Exterior Design',          el: 'Εξωτερική Διακόσμηση' },
@@ -67,7 +68,9 @@ export const dict = {
   },
 
   // About
-  about_title: { en: 'About Nina', el: 'Σχετικά με τη Νίνα' },
+  about_title:          { en: 'About Nina',                    el: 'Σχετικά με τη Νίνα' },
+  about_hero_sub:       { en: 'Interior Designer & Architect', el: 'Εσωτερική Διακοσμήτρια & Αρχιτέκτων' },
+  about_profile_label:  { en: 'Profile',                       el: 'Προφίλ' },
   about_quote: { en: '"Designing the next chapter of your life — one space at a time."', el: '"Σχεδιάζοντας το επόμενο κεφάλαιο της ζωής σας — έναν χώρο τη φορά."' },
   about_quote_cite: { en: '— Nina Marmaridou', el: '— Νίνα Μαρμαρίδου' },
   about_credential_years:    { en: 'Years of Experience',  el: 'Χρόνια Εμπειρίας' },
@@ -154,6 +157,26 @@ export const dict = {
   service_construction_desc: {
     en: 'We manage full construction oversight, ensuring every phase is executed with precision and high quality standards. Our collaboration with trusted contractors guarantees results that stand the test of time.',
     el: 'Αναλαμβάνουμε την πλήρη επίβλεψη της κατασκευής, διασφαλίζοντας ότι κάθε στάδιο εκτελείται με ακρίβεια και υψηλά πρότυπα ποιότητας. Η συνεργασία μας με έμπιστους κατασκευαστές εγγυάται αποτελέσματα που αντέχουν στον χρόνο.',
+  },
+  service_study_name:       { en: 'Space Study',                       el: 'Μελέτη Χώρων' },
+  service_study_desc: {
+    en: 'Creating tailored solutions that respond to your needs and personality.',
+    el: 'Δημιουργία προσαρμοσμένων λύσεων που ανταποκρίνονται στις ανάγκες και την προσωπικότητα σας.',
+  },
+  service_residential_name: { en: 'Residential & Commercial Design',   el: 'Διαμόρφωση Κατοικιών & Επαγγελματικών Χώρων' },
+  service_residential_desc: {
+    en: 'Transforming spaces into modern, functional, and aesthetically complete environments.',
+    el: 'Μετατροπή των χώρων σε σύγχρονα, λειτουργικά και αισθητικά άρτια περιβάλλοντα.',
+  },
+  service_consulting_name:  { en: 'Decor Consulting',                   el: 'Συμβουλευτική Διακόσμησης' },
+  service_consulting_desc: {
+    en: 'Selecting materials, color palettes, and textures that define the atmosphere of the space.',
+    el: 'Επιλογή υλικών, χρωματικών παλετών και υφών που καθορίζουν την ατμόσφαιρα του χώρου.',
+  },
+  service_custom_name:      { en: 'Furniture & Custom Design',          el: 'Έπιπλα & Εξατομικευμένος Σχεδιασμός' },
+  service_custom_desc: {
+    en: 'Designing furniture and custom constructs that offer solutions even in the most unique spaces, adding a unique character.',
+    el: 'Μελέτη και σχεδιασμός επίπλων και ειδικών κατασκευών που προσφέρουν λύσεις ακόμα και στις πιο ιδιαίτερους χώρους προσδίδοντας μοναδικό χαρακτήρα.',
   },
 
   // Project fallback

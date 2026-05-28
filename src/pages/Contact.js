@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { getLanguage } from '../i18n.js';
+import { getLanguage, dict } from '../i18n.js';
 
 // ── FormSubmit AJAX endpoint ──────────────────────────────────────────────────
 // On first real submission FormSubmit sends an activation email to this address.
@@ -12,6 +12,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/ninamarmaridou';
 const TIKTOK_URL    = 'https://www.tiktok.com/@ninamarmaridou';
 
 export async function renderContact(app) {
+  const lang = getLanguage();
   app.innerHTML = `
     <div class="contact-page">
 
@@ -22,9 +23,9 @@ export async function renderContact(app) {
         </div>
         <div class="page-hero-overlay"></div>
         <div class="page-hero-content">
-          <span class="page-hero-eyebrow">Contact</span>
-          <h1 class="page-hero-title" data-i18n="contact_title">Let's Work Together</h1>
-          <p class="page-hero-sub" data-i18n="contact_intro">We'd love to hear about your project. Fill in the form below or reach out directly.</p>
+          <span class="page-hero-eyebrow" data-i18n="nav_contact">${dict.nav_contact[lang]}</span>
+          <h1 class="page-hero-title" data-i18n="contact_title">${dict.contact_title[lang]}</h1>
+          <p class="page-hero-sub" data-i18n="contact_intro">${dict.contact_intro[lang]}</p>
         </div>
       </section>
 

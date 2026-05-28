@@ -1,10 +1,12 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { revealOnScroll } from '../utils/animations.js';
+import { getLanguage, dict } from '../i18n.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export async function renderAbout(app) {
+  const lang = getLanguage();
   app.innerHTML = `
     <div class="about-page">
 
@@ -17,7 +19,7 @@ export async function renderAbout(app) {
         <div class="about-hero-content">
           <span class="about-eyebrow" data-i18n="nav_about">About</span>
           <h1 class="about-hero-title" data-i18n="about_title">Nina Marmaridou</h1>
-          <p class="about-hero-sub">Interior Designer &amp; Architect</p>
+          <p class="about-hero-sub" data-i18n="about_hero_sub">${dict.about_hero_sub[lang]}</p>
         </div>
       </section>
 
@@ -25,13 +27,9 @@ export async function renderAbout(app) {
       <section class="about-bio-section">
         <div class="about-bio-grid">
           <div class="about-bio-text">
-            <span class="about-section-label">Profile</span>
+            <span class="about-section-label" data-i18n="about_profile_label">${dict.about_profile_label[lang]}</span>
             <h2 class="about-bio-heading" data-i18n="about_title">About Nina</h2>
-            <div class="about-bio-body" data-i18n="about_text">
-              <p>Nina Marmaridou is a Greek interior designer and architect based in Thessaloniki, with over a decade of experience transforming residential and commercial spaces into thoughtful, timeless environments.</p>
-              <p>Her approach blends classical proportions with contemporary sensibility — always guided by the client's vision and the unique character of each space. From concept to completion, Nina oversees every phase of the design process with meticulous attention to detail.</p>
-              <p>Nina has worked on projects across Athens, Thessaloniki, and the wider Greek countryside, earning recognition for her ability to balance warmth and sophistication in equal measure.</p>
-            </div>
+            <div class="about-bio-body" data-i18n="about_text">${dict.about_text[lang]}</div>
             <a href="/contact" data-link class="about-cta" data-i18n="nav_contact">Get In Touch</a>
           </div>
           <div class="about-bio-image">
